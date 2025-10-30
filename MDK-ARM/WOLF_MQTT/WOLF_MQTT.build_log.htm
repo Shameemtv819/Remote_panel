@@ -1,0 +1,108 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: mohammed shameem emcus technologies Flex license: MDK Essential 5.38 (Flex): 2 user(s) (mdk_essential) Support: May 2024
+ 
+Tool Versions:
+Toolchain:       MDK Essential 5.38 (Flex): 2 user(s)  Version: 5.38.0.0
+Toolchain Path:  C:\keil\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\mohammedshameemTV\Documents\Work_space\WOLF_MQTT\MDK-ARM\WOLF_MQTT.uvprojx
+Project File Date:  10/29/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\keil\ARM\ARMCC\Bin'
+Build target 'WOLF_MQTT'
+compiling https_client_app.c...
+..\scorpio_app\https_client_app.c(34): warning:  #47-D: incompatible redefinition of macro "CLEAR"  (declared at line 16 of "..\scorpio_app\network_time.h")
+  #define CLEAR                   (0U)
+..\scorpio_app\https_client_app.c(231): warning:  #111-D: statement is unreachable
+  			debug_msg("\r\nrecv failed\n" );
+..\scorpio_app\https_client_app.c(305): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+              debug_msg(print_buff);
+..\scorpio_app\https_client_app.c(308): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+              debug_msg(print_buff);
+..\scorpio_app\https_client_app.c(323): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+              debug_msg(print_buff);
+..\scorpio_app\https_client_app.c(351): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+           sprintf(print_buff,"\r\nMqttClient_Init error: %d\n",rc);
+..\scorpio_app\https_client_app.c(359): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+        sprintf(print_buff,"\r\nMqttClient_Init error: %d\n",rc);
+..\scorpio_app\https_client_app.c(381): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(print_buff,"\r\nMQTT connect error: %d\n",rc);
+..\scorpio_app\https_client_app.c(398): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+          sprintf(print_buff,"Subscribe failed: %d\n", rc);
+..\scorpio_app\https_client_app.c(515): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+          sprintf(print_buff, "WaitMessage error: %d\n", rc);
+..\scorpio_app\https_client_app.c(547): warning:  #940-D: missing return statement at end of non-void function "Msocketmanagertask" 
+  }
+..\scorpio_app\https_client_app.c(156): warning:  #177-D: variable "Msocket"  was declared but never referenced
+  static int Msocket = -1;
+..\scorpio_app\https_client_app.c(157): warning:  #177-D: variable "mClient"  was declared but never referenced
+  static MqttClient mClient;
+..\scorpio_app\https_client_app.c: 13 warnings, 0 errors
+linking...
+Program Size: Code=307904 RO-data=169180 RW-data=1204 ZI-data=129636  
+FromELF: creating hex file...
+"WOLF_MQTT\WOLF_MQTT.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM.CMSIS.6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.ARM_Compiler.1.7.2.pack
+                Keil.ARM_Compiler.1.7.2
+                Keil ARM Compiler extensions for ARM Compiler 5 and ARM Compiler 6
+   * Component: STDERR Variant: Breakpoint Version: 1.2.0
+   * Component: STDIN Variant: ITM Version: 1.2.0
+   * Component: STDOUT Variant: User Version: 1.2.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F2xx_DFP.2.11.0.pack
+                Keil.STM32F2xx_DFP.2.11.0
+                STMicroelectronics STM32F2 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_WOLF_MQTT
+  C:/KEIL/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+  C:/KEIL/Keil/STM32F2xx_DFP/2.11.0/Drivers/CMSIS/Device/ST/STM32F2xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:6.1.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDERR:Breakpoint:1.2.0
+      Source file:   Source/retarget_io.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDIN:ITM:1.2.0
+      Source file:   Source/retarget_io.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
+      Source file:   Template/stdout_display.c
+      Source file:   Source/retarget_io.c
+      Source file:   Template/stdout_user.c
+      Source file:   Template/stdout_USART.c
+Build Time Elapsed:  00:00:26
+</pre>
+</body>
+</html>

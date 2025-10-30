@@ -1,0 +1,14 @@
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+wolf_mqtt\stream_buffer.o: C:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+wolf_mqtt\stream_buffer.o: C:\keil\ARM\ARMCC\Bin\..\include\string.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+wolf_mqtt\stream_buffer.o: C:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+wolf_mqtt\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+wolf_mqtt\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h

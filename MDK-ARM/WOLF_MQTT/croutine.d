@@ -1,0 +1,14 @@
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+wolf_mqtt\croutine.o: C:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+wolf_mqtt\croutine.o: C:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+wolf_mqtt\croutine.o: ../Core/Inc/FreeRTOSConfig.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+wolf_mqtt\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
