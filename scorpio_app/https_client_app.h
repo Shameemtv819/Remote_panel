@@ -20,6 +20,7 @@ void generate_GET_request(uint8_t *ac_sendline, uint8_t *server_file_path);
 int32_t vsocketmanagertask(void );
 void netif_status_callback(struct netif *netif);
 int32_t Msocketmanagertask(void);
+void wolfssl_print(const int i32_logLevel, const char *const ai8_logMessage);
 
 
 #endif /* __MAIN_H */

@@ -87,6 +87,7 @@ void User_notification(struct netif *netif)
     netif_set_down(&gnetif);
     debug_msg("\r\n*************eth not connected*******************");
     dhcp_queue = DHCP_OFF;
+	//	osThreadTerminate(mqtt_task_handle);
   }
   if (pf_config->IP.ip_enable)
   {
@@ -176,6 +177,51 @@ void MX_LWIP_Init(void)
 }
 /* USER CODE END 2 */
 
+/**
+  * LwIP initialization function
+  */
+//void MX_LWIP_Init(void)
+//{
+//  /* Initialize the LwIP stack with RTOS */
+//  tcpip_init( NULL, NULL );
+
+//  /* IP addresses initialization with DHCP (IPv4) */
+//  ipaddr.addr = 0;
+//  netmask.addr = 0;
+//  gw.addr = 0;
+
+//  /* add the network interface (IPv4/IPv6) with RTOS */
+//  netif_add(&gnetif, &ipaddr, &netmask, &gw, NULL, &ethernetif_init, &tcpip_input);
+
+//  /* Registers the default network interface */
+//  netif_set_default(&gnetif);
+
+//  /* We must always bring the network interface up connection or not... */
+//  netif_set_up(&gnetif);
+
+//  /* Set the link callback function, this function is called on change of link status*/
+//  netif_set_link_callback(&gnetif, ethernetif_update_config);
+
+//  /* create a binary semaphore used for informing ethernetif of frame reception */
+//  Netif_LinkSemaphore = osSemaphoreNew(1, 1, NULL);
+
+//  link_arg.netif = &gnetif;
+//  link_arg.semaphore = Netif_LinkSemaphore;
+//  /* Create the Ethernet link handler thread */
+///* USER CODE BEGIN OS_THREAD_NEW_CMSIS_RTOS_V2 */
+//  memset(&attributes, 0x0, sizeof(osThreadAttr_t));
+//  attributes.name = "LinkThr";
+//  attributes.stack_size = INTERFACE_THREAD_STACK_SIZE;
+//  attributes.priority = osPriorityBelowNormal;
+//  osThreadNew(ethernetif_set_link, &link_arg, &attributes);
+///* USER CODE END OS_THREAD_NEW_CMSIS_RTOS_V2 */
+
+//  /* Start DHCP negotiation for a network interface (IPv4) */
+//  dhcp_start(&gnetif);
+
+///* USER CODE BEGIN 3 */
+///* USER CODE END 3 */
+//}
 
 #ifdef USE_OBSOLETE_USER_CODE_SECTION_4
 /* Kept to help code migration. (See new 4_1, 4_2... sections) */

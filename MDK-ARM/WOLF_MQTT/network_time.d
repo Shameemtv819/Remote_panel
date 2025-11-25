@@ -32,6 +32,8 @@ wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_flas
 wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_pwr.h
 wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_pwr_ex.h
 wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_rng.h
+wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_rtc.h
+wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_rtc_ex.h
 wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_tim.h
 wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_tim_ex.h
 wolf_mqtt\network_time.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_uart.h
@@ -170,3 +172,4 @@ wolf_mqtt\network_time.o: ..\scorpio_app\mcu_comm_app.h
 wolf_mqtt\network_time.o: ..\scorpio_app\json_handler.h
 wolf_mqtt\network_time.o: ..\scorpio_app\https_client_app.h
 wolf_mqtt\network_time.o: ..\scorpio_app\http_server_app.h
+wolf_mqtt\network_time.o: ..\scorpio_app\mqtt.h

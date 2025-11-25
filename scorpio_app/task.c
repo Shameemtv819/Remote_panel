@@ -72,6 +72,18 @@ const osThreadAttr_t lte_task_attributes = {
     .priority = (osPriority_t)osPriorityNormal,
 };
 
+osThreadId_t mqtt_task_handle;
+uint32_t mqtt_task_buffer[512] = {0}; // 1kb
+StaticTask_t mqtt_task_control_block;
+const osThreadAttr_t mqtt_task_attributes = {
+    .name = "mqtt task",
+    .cb_mem = &mqtt_task_control_block,
+    .cb_size = sizeof(mqtt_task_control_block),
+    .stack_mem = &mqtt_task_buffer[0],
+    .stack_size = sizeof(mqtt_task_buffer),
+    .priority = (osPriority_t)osPriorityNormal,
+};
+
 osThreadId_t flash_task_handle;
 uint32_t flash_task_buffer[256] = {0}; // 1kb
 StaticTask_t flash_task_control_block;
@@ -275,10 +287,11 @@ void DHCP_thread(void *argument)
           xQueueSendFromISR(queue_ip_conf, (queue_data_def *)&dhcp_queue, &xHigherPriorityTaskWoken);
           fetch_network_time();
 					
-					 BaseType_t pxHigherPriorityTaskWoken = pdFAIL;
-					queue_data_def eth_data;
-					  eth_data.service = ETH_CLOUD_FW_DOWNLOAD_QUEUE;
-    xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+          debug_msg("\r\nIP address assigned starting mqtt task:");
+					if(mqtt_task_handle == 0U)
+					{
+              mqtt_task_handle = osThreadNew(mqtt_task, NULL, &mqtt_task_attributes);
+					}
         }
         else
         {
@@ -349,21 +362,21 @@ void ip_task(void *argument)
   (void)argument;
   queue_data_def ip_data_recv = {0};
   /* init code for LWIP */
-//  if (pf_config->GSM.u8_gsm_enable)
-//  {
-//    if (SUCCESS == lte_module_reset())
-//    {
-//      lte_init();
-//    }
-//    else
-//    {
-//      debug_msg((uint8_t *)"lte not initialized properly");
-//    }
-//  }
-//  else
-//  {
-//    debug_msg("gsm disabled");
-//  }
+  if (pf_config->GSM.u8_gsm_enable)
+  {
+    if (SUCCESS == lte_module_reset())
+    {
+      lte_init();
+    }
+    else
+    {
+      debug_msg((uint8_t *)"lte not initialized properly");
+    }
+  }
+  else
+  {
+    debug_msg("gsm disabled");
+  }
   MX_LWIP_Init();
 
   /* Configure and start the SNTP client */
@@ -431,14 +444,14 @@ void flash_task(void *argument)
  */
 static void xTasks_init(void)
 {
-//  if (pf_config->GSM.u8_gsm_enable)
-//  {
-//    lte_task_handle = osThreadNew(lte_task, NULL, &lte_task_attributes);
-//  }
-//  else
-//  {
-//    debug_msg("\r\ngsm disabled");
-//  }
+  if (pf_config->GSM.u8_gsm_enable)
+  {
+    lte_task_handle = osThreadNew(lte_task, NULL, &lte_task_attributes);
+  }
+  else
+  {
+    debug_msg("\r\ngsm disabled");
+  }
   ip_task_handle = osThreadNew(ip_task, NULL, &ip_task_attributes);
   flash_task_handle = osThreadNew(flash_task, NULL, &flash_task_attributes);
 //  relay_task_handle = osThreadNew(relay_thread, NULL, &relay_task_attributes);

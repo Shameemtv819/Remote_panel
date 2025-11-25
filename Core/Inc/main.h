@@ -61,7 +61,7 @@ void Error_Handler(void);
 void MX_USART2_UART_Init(void);
 
 /* USER CODE BEGIN EFP */
-
+extern volatile uint8_t u8_one_sec_flag;
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

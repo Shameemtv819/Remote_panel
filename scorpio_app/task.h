@@ -37,6 +37,8 @@ extern QueueHandle_t queue_flash;
 extern QueueHandle_t queue_ip_conf;
 extern QueueHandle_t queue_relay;
 
+extern osThreadId_t mqtt_task_handle;
+
 /******************************************************* Function prototypes *******************************************************/
 void app_init (void);
 #endif

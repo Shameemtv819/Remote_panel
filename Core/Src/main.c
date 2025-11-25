@@ -31,6 +31,8 @@
 /********************************Private define********************************/
 
 /*******************************Private variables******************************/
+volatile uint8_t u8_one_sec_flag;
+volatile uint16_t u16_delay_offset;
 /********************************Extern variables******************************/
 
 /******************************Free Rtos variables*****************************/
@@ -52,7 +54,13 @@ CRC_HandleTypeDef hcrc;
 
 RNG_HandleTypeDef hrng;
 
+RTC_HandleTypeDef hrtc;
 
+TIM_HandleTypeDef htim12;
+
+//UART_HandleTypeDef huart1;
+//UART_HandleTypeDef huart2;
+//UART_HandleTypeDef huart3;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -70,6 +78,10 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_CRC_Init(void);
 static void MX_RNG_Init(void);
+static void MX_TIM12_Init(void);
+static void MX_USART1_UART_Init(void);
+static void MX_USART3_UART_Init(void);
+static void MX_RTC_Init(void);
 void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -78,7 +90,6 @@ static void MX_RNG_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 /* USER CODE END 0 */
 
 /**
@@ -110,16 +121,20 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_CRC_Init();
-  MX_RNG_Init();
- 
+ // MX_CRC_Init();
+ // MX_RNG_Init();
+  //MX_USART2_UART_Init();
+  MX_TIM12_Init();
+ // MX_USART1_UART_Init();
+ // MX_USART3_UART_Init();
+  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
 	//relay_init();
  // MX_RNG_Init();
   crc_init();
-  //lte_uart_init();      
+  lte_uart_init();      
   debug_uart_init();    
-  //mcu_comm_uart_init(); 
+  mcu_comm_uart_init(); 
   flash_init();
   /* USER CODE END 2 */
 
@@ -179,13 +194,15 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 13;
@@ -210,6 +227,12 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 
 /**
@@ -217,26 +240,26 @@ void SystemClock_Config(void)
   * @param None
   * @retval None
   */
-static void MX_CRC_Init(void)
-{
+//static void MX_CRC_Init(void)
+//{
 
-  /* USER CODE BEGIN CRC_Init 0 */
+//  /* USER CODE BEGIN CRC_Init 0 */
 
-  /* USER CODE END CRC_Init 0 */
+//  /* USER CODE END CRC_Init 0 */
 
-  /* USER CODE BEGIN CRC_Init 1 */
+//  /* USER CODE BEGIN CRC_Init 1 */
 
-  /* USER CODE END CRC_Init 1 */
-  hcrc.Instance = CRC;
-  if (HAL_CRC_Init(&hcrc) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN CRC_Init 2 */
+//  /* USER CODE END CRC_Init 1 */
+//  hcrc.Instance = CRC;
+//  if (HAL_CRC_Init(&hcrc) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+//  /* USER CODE BEGIN CRC_Init 2 */
 
-  /* USER CODE END CRC_Init 2 */
+//  /* USER CODE END CRC_Init 2 */
 
-}
+//}
 
 /**
   * @brief RNG Initialization Function
@@ -264,7 +287,211 @@ static void MX_RNG_Init(void)
 
 }
 
+/**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RTC_Init(void)
+{
 
+  /* USER CODE BEGIN RTC_Init 0 */
+
+  /* USER CODE END RTC_Init 0 */
+
+  RTC_TimeTypeDef sTime = {0};
+  RTC_DateTypeDef sDate = {0};
+
+  /* USER CODE BEGIN RTC_Init 1 */
+
+  /* USER CODE END RTC_Init 1 */
+
+  /** Initialize RTC Only
+  */
+  hrtc.Instance = RTC;
+  hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+  hrtc.Init.AsynchPrediv = 127;
+  hrtc.Init.SynchPrediv = 255;
+  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* USER CODE BEGIN Check_RTC_BKUP */
+
+  /* USER CODE END Check_RTC_BKUP */
+
+  /** Initialize RTC and set the Time and Date
+  */
+  sTime.Hours = 0x0;
+  sTime.Minutes = 0x0;
+  sTime.Seconds = 0x0;
+  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
+  sDate.Month = RTC_MONTH_JANUARY;
+  sDate.Date = 0x1;
+  sDate.Year = 0x0;
+
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN RTC_Init 2 */
+
+  /* USER CODE END RTC_Init 2 */
+
+}
+
+/**
+  * @brief TIM12 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM12_Init(void)
+{
+
+  /* USER CODE BEGIN TIM12_Init 0 */
+
+  /* USER CODE END TIM12_Init 0 */
+
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM12_Init 1 */
+
+  /* USER CODE END TIM12_Init 1 */
+  htim12.Instance = TIM12;
+  htim12.Init.Prescaler = 60;
+  htim12.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim12.Init.Period = 65535;
+  htim12.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim12.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_OC_Init(&htim12) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_TIMING;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_OC_ConfigChannel(&htim12, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM12_Init 2 */
+HAL_NVIC_SetPriority(TIM8_BRK_TIM12_IRQn, 5, 0);
+HAL_NVIC_EnableIRQ(TIM8_BRK_TIM12_IRQn);
+	
+	HAL_TIM_OC_Start_IT(&htim12, TIM_CHANNEL_2);
+  /* USER CODE END TIM12_Init 2 */
+
+}
+
+///**
+//  * @brief USART1 Initialization Function
+//  * @param None
+//  * @retval None
+//  */
+//static void MX_USART1_UART_Init(void)
+//{
+
+//  /* USER CODE BEGIN USART1_Init 0 */
+
+//  /* USER CODE END USART1_Init 0 */
+
+//  /* USER CODE BEGIN USART1_Init 1 */
+
+//  /* USER CODE END USART1_Init 1 */
+//  huart1.Instance = USART1;
+//  huart1.Init.BaudRate = 115200;
+//  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+//  huart1.Init.StopBits = UART_STOPBITS_1;
+//  huart1.Init.Parity = UART_PARITY_NONE;
+//  huart1.Init.Mode = UART_MODE_TX_RX;
+//  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+//  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+//  if (HAL_UART_Init(&huart1) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+//  /* USER CODE BEGIN USART1_Init 2 */
+
+//  /* USER CODE END USART1_Init 2 */
+
+//}
+
+///**
+//  * @brief USART2 Initialization Function
+//  * @param None
+//  * @retval None
+//  */
+//void MX_USART2_UART_Init(void)
+//{
+
+//  /* USER CODE BEGIN USART2_Init 0 */
+
+//  /* USER CODE END USART2_Init 0 */
+
+//  /* USER CODE BEGIN USART2_Init 1 */
+
+//  /* USER CODE END USART2_Init 1 */
+//  huart2.Instance = USART2;
+//  huart2.Init.BaudRate = 115200;
+//  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+//  huart2.Init.StopBits = UART_STOPBITS_1;
+//  huart2.Init.Parity = UART_PARITY_NONE;
+//  huart2.Init.Mode = UART_MODE_TX_RX;
+//  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+//  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+//  if (HAL_UART_Init(&huart2) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+//  /* USER CODE BEGIN USART2_Init 2 */
+
+//  /* USER CODE END USART2_Init 2 */
+
+//}
+
+///**
+//  * @brief USART3 Initialization Function
+//  * @param None
+//  * @retval None
+//  */
+//static void MX_USART3_UART_Init(void)
+//{
+
+//  /* USER CODE BEGIN USART3_Init 0 */
+
+//  /* USER CODE END USART3_Init 0 */
+
+//  /* USER CODE BEGIN USART3_Init 1 */
+
+//  /* USER CODE END USART3_Init 1 */
+//  huart3.Instance = USART3;
+//  huart3.Init.BaudRate = 115200;
+//  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+//  huart3.Init.StopBits = UART_STOPBITS_1;
+//  huart3.Init.Parity = UART_PARITY_NONE;
+//  huart3.Init.Mode = UART_MODE_TX_RX;
+//  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+//  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+//  if (HAL_UART_Init(&huart3) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+//  /* USER CODE BEGIN USART3_Init 2 */
+
+//  /* USER CODE END USART3_Init 2 */
+
+//}
 
 /**
   * @brief GPIO Initialization Function
@@ -328,6 +555,19 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   }
 }
 
+void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    if (htim->Instance == TIM12)
+    {
+        u16_delay_offset++;
+
+        if (u16_delay_offset >= 16)   // 16 interrupts = 1 sec
+        {
+            u8_one_sec_flag = 1;
+            u16_delay_offset = 0;     // reset for next 1-second period
+        }
+    }
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -362,7 +602,14 @@ void StartDefaultTask(void *argument)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* USER CODE BEGIN Callback 0 */
-
+   if (htim->Instance == TIM12) 
+	{
+		u16_delay_offset++;
+		if(u16_delay_offset > 15)
+		{
+        u8_one_sec_flag = 1;   // your 1-second flag
+		}
+    }
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM2)
   {

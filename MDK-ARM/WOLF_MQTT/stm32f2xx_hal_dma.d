@@ -29,6 +29,8 @@ wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal
 wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_pwr.h
 wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_pwr_ex.h
 wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_rng.h
+wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_rtc.h
+wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_rtc_ex.h
 wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_tim.h
 wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_tim_ex.h
 wolf_mqtt\stm32f2xx_hal_dma.o: ../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_uart.h

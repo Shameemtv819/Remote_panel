@@ -1,0 +1,11 @@
+wolf_mqtt\mqtt_client_1.o: ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/src/mqtt_client.c
+wolf_mqtt\mqtt_client_1.o: ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt/mqtt_client.h
+wolf_mqtt\mqtt_client_1.o: ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt/options.h
+wolf_mqtt\mqtt_client_1.o: ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt/mqtt_types.h
+wolf_mqtt\mqtt_client_1.o: ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt/visibility.h
+wolf_mqtt\mqtt_client_1.o: ../wolfMQTT/wolfSSL.I-CUBE-wolfMQTT_conf.h
+wolf_mqtt\mqtt_client_1.o: C:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+wolf_mqtt\mqtt_client_1.o: C:\keil\ARM\ARMCC\Bin\..\include\string.h
+wolf_mqtt\mqtt_client_1.o: C:\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+wolf_mqtt\mqtt_client_1.o: ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt/mqtt_packet.h
+wolf_mqtt\mqtt_client_1.o: ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt/mqtt_socket.h

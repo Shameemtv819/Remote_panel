@@ -44,9 +44,8 @@
 #include <wolfssl/wolfcrypt/ecc.h>
 
 //wolf mqtt
-#include "wolfmqtt/mqtt_client.h"
-//#include "wolfmqtt/mqtt_client_interface.h"
-
+#include "mqtt_client.h"
+#include "mqtt_socket.h"
 
 // bsp includes
 #include "scorpio_bsp.h"
@@ -63,6 +62,7 @@
 #include "json_handler.h"
 #include "https_client_app.h"
 #include "http_server_app.h"
+#include "mqtt.h"
 
 
 /*********************************************************** Macros ****************************************************************/
