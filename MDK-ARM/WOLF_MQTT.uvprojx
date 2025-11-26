@@ -1092,12 +1092,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>::CMSIS</GroupName>
-        </Group>
-        <Group>
-          <GroupName>::Compiler</GroupName>
-        </Group>
-        <Group>
           <GroupName>Middlewares/wolfMQTT/wolfMQTT/wolfMQTT/Core</GroupName>
           <GroupOption>
             <CommonProperty>
@@ -8598,6 +8592,12 @@
               </FileOption>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
+        </Group>
+        <Group>
+          <GroupName>::Compiler</GroupName>
         </Group>
       </Groups>
     </Target>

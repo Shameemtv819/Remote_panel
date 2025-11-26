@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 C:\Users\mohammedshameemTV\Work_space\WOLF_MQTT\MDK-ARM\WOLF_MQTT.uvprojx
-Project File Date:  11/25/2025
+Project File Date:  11/26/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\keil\ARM\ARMCC\Bin'
@@ -30,69 +30,55 @@ Build target 'WOLF_MQTT'
 Note: source file '..\scorpio_app\mqtt.c' - object file renamed from 'WOLF_MQTT\mqtt.o' to 'WOLF_MQTT\mqtt_1.o'.
 Note: source file '../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/src/mqtt_client.c' - object file renamed from 'WOLF_MQTT\mqtt_client.o' to 'WOLF_MQTT\mqtt_client_1.o'.
 compiling mqtt.c...
-..\scorpio_app\mqtt.h(22): warning:  #1-D: last line of file ends without a newline
+..\scorpio_app\mqtt.h(23): warning:  #1-D: last line of file ends without a newline
   #endif/* MQTT_H */
-..\scorpio_app\mqtt.h(22): warning:  #1-D: last line of file ends without a newline
+..\scorpio_app\mqtt.h(23): warning:  #1-D: last line of file ends without a newline
   #endif/* MQTT_H */
-..\scorpio_app\mqtt.c(126): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-          debug_msg(dbg_buff);
-..\scorpio_app\mqtt.c(136): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-              debug_msg(dbg_buff);
-..\scorpio_app\mqtt.c(150): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-              debug_msg(dbg_buff);
-..\scorpio_app\mqtt.c(174): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-              debug_msg(dbg_buff);
-..\scorpio_app\mqtt.c(183): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-          debug_msg(dbg_buff);
-..\scorpio_app\mqtt.c(194): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-      debug_msg(dbg_buff);
-..\scorpio_app\mqtt.c(321): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-          debug_msg(print_buff);
-..\scorpio_app\mqtt.c(324): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-          debug_msg(print_buff);
-..\scorpio_app\mqtt.c(339): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-          debug_msg(print_buff);
-..\scorpio_app\mqtt.c(376): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-                  sprintf(print_buff, "\r\nMqttClient_Init error: %d\n", rc);
-..\scorpio_app\mqtt.c(385): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-                      sprintf(print_buff, "\r\nMqttClient_Netconnect error: %d\n", rc);
+..\scorpio_app\mqtt.c(166): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+          snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
+..\scorpio_app\mqtt.c(176): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+              snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
+..\scorpio_app\mqtt.c(190): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+              snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
+..\scorpio_app\mqtt.c(214): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+              snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
+..\scorpio_app\mqtt.c(223): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+          snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
+..\scorpio_app\mqtt.c(235): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+      snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
+..\scorpio_app\mqtt.c(400): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+          sprintf(u8_print_buff, "Received PUBLISH topic: %s\n", publish->topic_name);
 ..\scorpio_app\mqtt.c(403): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-                  sprintf(print_buff, "\r\nMQTT connect error: %d\n", rc);
-..\scorpio_app\mqtt.c(420): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-                  sprintf(print_buff, "Subscribe failed: %d\n", rc);
-..\scorpio_app\mqtt.c(437): warning:  #188-D: enumerated type mixed with another type
+          sprintf(u8_print_buff, "Payload: %.*s\n", publish->total_len, publish->buffer);
+..\scorpio_app\mqtt.c(418): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+          sprintf(u8_print_buff, "Unhandled message type: %d\n", message->type);
+..\scorpio_app\mqtt.c(461): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                  sprintf(u8_print_buff, "\r\nMqttClient_Init error: %d\n", i32_rc);
+..\scorpio_app\mqtt.c(471): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                      sprintf(u8_print_buff, "\r\nMqttClient_Netconnect error: %d\n", i32_rc);
+..\scorpio_app\mqtt.c(489): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                  sprintf(u8_print_buff, "\r\nMQTT connect error: %d\n", i32_rc);
+..\scorpio_app\mqtt.c(506): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                  sprintf(u8_print_buff, "Subscribe failed: %d\n", i32_rc);
+..\scorpio_app\mqtt.c(523): warning:  #188-D: enumerated type mixed with another type
               publish.qos = 0;
-..\scorpio_app\mqtt.c(469): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-                      sprintf(print_buff, "WaitMessage error: %d\n", rc);
-..\scorpio_app\mqtt.c(498): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-                  sprintf(print_buff, "\r\nMqttClient_Init error: %d\n", rc);
-..\scorpio_app\mqtt.c(524): warning:  #111-D: statement is unreachable
-      MqttNet_Init(&net);
-..\scorpio_app\mqtt.c(537): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          sprintf(print_buff, "\r\nMqttClient_Init error: %d\n", rc);
-..\scorpio_app\mqtt.c(544): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          sprintf(print_buff, "\r\nMqttClient_Init error: %d\n", rc);
-..\scorpio_app\mqtt.c(564): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          sprintf(print_buff, "\r\nMQTT connect error: %d\n", rc);
-..\scorpio_app\mqtt.c(582): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          sprintf(print_buff, "Subscribe failed: %d\n", rc);
-..\scorpio_app\mqtt.c(592): warning:  #188-D: enumerated type mixed with another type
-      publish.qos = 0;
-..\scorpio_app\mqtt.c(624): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              sprintf(print_buff, "WaitMessage error: %d\n", rc);
-..\scorpio_app\mqtt.c(630): warning:  #111-D: statement is unreachable
-      MqttClient_Disconnect(&client);
-..\scorpio_app\mqtt.c(353): warning:  #177-D: variable "ip_address"  was declared but never referenced
+..\scorpio_app\mqtt.c(527): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+              publish.total_len = (word16)strlen(au8_status_buf);
+..\scorpio_app\mqtt.c(561): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+                      sprintf(u8_print_buff, "WaitMessage error: %d\n", i32_rc);
+..\scorpio_app\mqtt.c(436): warning:  #177-D: variable "ip_address"  was declared but never referenced
       ip_addr_t ip_address;
-..\scorpio_app\mqtt.c(99): warning:  #177-D: variable "Msocket"  was declared but never referenced
-  static int Msocket = -1;
-..\scorpio_app\mqtt.c(100): warning:  #177-D: variable "mClient"  was declared but never referenced
-  static MqttClient mClient;
-..\scorpio_app\mqtt.c: 29 warnings, 0 errors
+..\scorpio_app\mqtt.c(591): warning:  #188-D: enumerated type mixed with another type
+      MqttPublish publish = {0};
+..\scorpio_app\mqtt.c(592): warning:  #188-D: enumerated type mixed with another type
+      publish.qos = 2;
+..\scorpio_app\mqtt.c(589): warning:  #177-D: variable "u8_print_buff"  was declared but never referenced
+  	  uint8_t u8_print_buff[100];
+..\scorpio_app\mqtt.c: 22 warnings, 0 errors
 linking...
-Program Size: Code=320544 RO-data=169276 RW-data=1204 ZI-data=100796  
+Program Size: Code=320884 RO-data=169272 RW-data=1260 ZI-data=100984  
 FromELF: creating hex file...
-"WOLF_MQTT\WOLF_MQTT.axf" - 0 Error(s), 29 Warning(s).
+"WOLF_MQTT\WOLF_MQTT.axf" - 0 Error(s), 22 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -136,7 +122,7 @@ Package Vendor: Keil
       Source file:   Template/stdout_display.c
       Source file:   Template/stdout_USART.c
       Source file:   Template/stdout_user.c
-Build Time Elapsed:  00:00:20
+Build Time Elapsed:  00:00:21
 </pre>
 </body>
 </html>

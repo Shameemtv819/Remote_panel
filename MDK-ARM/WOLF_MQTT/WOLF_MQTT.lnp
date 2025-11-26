@@ -130,7 +130,6 @@
 "wolf_mqtt\mcu_comm_uart.o"
 "wolf_mqtt\scorpio_bsp.o"
 "wolf_mqtt\stdout_user.o"
-"wolf_mqtt\retarget_io.o"
 "wolf_mqtt\mqtt_client_1.o"
 "wolf_mqtt\mqtt_packet.o"
 "wolf_mqtt\mqtt_socket.o"
@@ -261,6 +260,7 @@
 "wolf_mqtt\atmel.o"
 "wolf_mqtt\stm32.o"
 "wolf_mqtt\stsafe.o"
+"wolf_mqtt\retarget_io.o"
 --strict --scatter "WOLF_MQTT\WOLF_MQTT.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

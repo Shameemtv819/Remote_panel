@@ -136,6 +136,35 @@ void unix_time_to_tm(uint32_t u32_timestamp, struct tm *out_tm)
     out_tm->tm_isdst = 0; // Daylight saving time not supported (set to 0)
 }
 
+void RTC_SetFromUnix(struct tm *t)
+{
+    RTC_TimeTypeDef sTime = {0};
+    RTC_DateTypeDef sDate = {0};
+
+    /* Fill time structure */
+    sTime.Hours   = t->tm_hour;
+    sTime.Minutes = t->tm_min;
+    sTime.Seconds = t->tm_sec;
+    sTime.TimeFormat = RTC_HOURFORMAT12_AM;
+
+    /* Convert to binary format (HAL will convert to BCD if needed) */
+    if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    /* Fill date structure */
+    sDate.Year  = (t->tm_year + 1900) - 2000;   // STM32 stores year as offset from 2000
+    sDate.Month = t->tm_mon + 1;               // tm_mon: 0–11 → RTC: 1–12
+    sDate.Date  = t->tm_mday;
+    sDate.WeekDay = (t->tm_wday == 0) ? 7 : t->tm_wday;   // tm_wday: Sun=0 → RTC: 7
+
+    if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
+    {
+        Error_Handler();
+    }
+}
+
 
 /*************************************************************************************************************************************************
  * @brief This function will handle communication with ntp server and convert the received data to unix
@@ -213,6 +242,7 @@ int fetch_network_time(void)
                             timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
                             timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
                     debug_msg(au8_printf_buff);
+									RTC_SetFromUnix(&timeinfo);
                 }
                 else
                 {
