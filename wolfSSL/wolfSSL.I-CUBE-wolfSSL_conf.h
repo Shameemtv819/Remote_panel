@@ -46,7 +46,7 @@
 #define WOLF_CONF_DTLS      0
 
 /*---------- WOLF_CONF_MATH -----------*/
-#define WOLF_CONF_MATH      1
+#define WOLF_CONF_MATH      6
 
 /*---------- WOLF_CONF_RTOS -----------*/
 #define WOLF_CONF_RTOS      2
@@ -94,7 +94,7 @@
 #define WOLF_CONF_SHA2_512      1
 
 /*---------- WOLF_CONF_SHA3 -----------*/
-#define WOLF_CONF_SHA3      0
+#define WOLF_CONF_SHA3      1
 
 /*---------- WOLF_CONF_PSK -----------*/
 #define WOLF_CONF_PSK      0
@@ -103,7 +103,7 @@
 #define WOLF_CONF_PWDBASED      0
 
 /*---------- WOLF_CONF_KEEP_PEER_CERT -----------*/
-#define WOLF_CONF_KEEP_PEER_CERT      1
+#define WOLF_CONF_KEEP_PEER_CERT      0
 
 /*---------- WOLF_CONF_BASE64_ENCODE -----------*/
 #define WOLF_CONF_BASE64_ENCODE      1

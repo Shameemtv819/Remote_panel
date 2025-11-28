@@ -72,17 +72,6 @@ const osThreadAttr_t lte_task_attributes = {
     .priority = (osPriority_t)osPriorityNormal,
 };
 
-osThreadId_t mqtt_task_handle;
-uint32_t mqtt_task_buffer[512] = {0}; // 1kb
-StaticTask_t mqtt_task_control_block;
-const osThreadAttr_t mqtt_task_attributes = {
-    .name = "mqtt task",
-    .cb_mem = &mqtt_task_control_block,
-    .cb_size = sizeof(mqtt_task_control_block),
-    .stack_mem = &mqtt_task_buffer[0],
-    .stack_size = sizeof(mqtt_task_buffer),
-    .priority = (osPriority_t)osPriorityNormal,
-};
 
 osThreadId_t flash_task_handle;
 uint32_t flash_task_buffer[256] = {0}; // 1kb
@@ -287,11 +276,11 @@ void DHCP_thread(void *argument)
           xQueueSendFromISR(queue_ip_conf, (queue_data_def *)&dhcp_queue, &xHigherPriorityTaskWoken);
           fetch_network_time();
 					
-          debug_msg("\r\nIP address assigned starting mqtt task:");
-					if(mqtt_task_handle == 0U)
-					{
-              mqtt_task_handle = osThreadNew(mqtt_task, NULL, &mqtt_task_attributes);
-					}
+          // debug_msg("\r\nIP address assigned starting mqtt task:");
+					// if(mqtt_task_handle == 0U)
+					// {
+          //     mqtt_task_handle = osThreadNew(mqtt_task, NULL, &mqtt_task_attributes);
+					// }
         }
         else
         {
@@ -407,11 +396,14 @@ void ip_task(void *argument)
 #if (THREADX)
     if (TX_SUCCESS == tx_queue_receive(&queue_lte, ip_data_recv, TX_WAIT_FOREVER))
 #elif (FREE_RTOS)
-    if (pdTRUE == xQueueReceive(queue_eth, (queue_data_def *)&ip_data_recv, portMAX_DELAY))
+    if (pdTRUE == xQueueReceive(queue_eth, (queue_data_def *)&ip_data_recv, 100))
 #endif
     {
       ip_task_process(ip_data_recv.service, ip_data_recv.tx_data, ip_data_recv.tx_data_len);
-    }
+    }else
+		{
+			mqtt_process();
+		}
   }
 }
 

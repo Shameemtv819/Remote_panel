@@ -61,6 +61,7 @@ wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/w
 wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/hash.h
 wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha.h
 wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha256.h
+wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha3.h
 wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/logging.h
 wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfcrypt/src/misc.c
 wolf_mqtt\sha512.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/misc.h

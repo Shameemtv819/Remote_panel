@@ -12,59 +12,57 @@
 /*structure to sent fire fault for register log in cloud*/
 typedef struct __attribute__((__packed__))
 {
-	uint16_t startof_file;
-  uint16_t u16_source;
-  uint16_t payload_length;
-  uint16_t packetNumber;
-  uint16_t u16_event_id;
-  uint16_t log_num;
-  uint8_t au8_device_text[21];
-  uint8_t u8_zone_number;
-  uint8_t u8_node_address;
-  uint8_t u8_device_address;
-  uint8_t u8_device_type;
-  uint8_t u8_device_sub_type;
-  uint8_t u8_date;    
-  uint8_t u8_month;    
-  uint8_t u8_year;
-  uint8_t u8_hours;            
-  uint8_t u8_minutes;          
-  uint8_t u8_seconds;          
-  uint8_t u8_logbitoffset;
-	uint16_t serial_no;
-  uint16_t u16_crc;
+    uint16_t startof_file;
+    uint16_t u16_source;
+    uint16_t payload_length;
+    uint16_t packetNumber;
+    uint16_t u16_event_id;
+    uint16_t log_num;
+    uint8_t au8_device_text[21];
+    uint8_t u8_zone_number;
+    uint8_t u8_node_address;
+    uint8_t u8_device_address;
+    uint8_t u8_device_type;
+    uint8_t u8_device_sub_type;
+    uint8_t u8_date;
+    uint8_t u8_month;
+    uint8_t u8_year;
+    uint8_t u8_hours;
+    uint8_t u8_minutes;
+    uint8_t u8_seconds;
+    uint8_t u8_logbitoffset;
+    uint16_t serial_no;
+    uint16_t u16_crc;
 } EventLog_t;
 
 /* USER CODE END Private defines */
 EventLog_t fire = {
-    .u16_event_id       = 2010,
-    .log_num            = 56,
-    .au8_device_text    = "Sensor Activated",   // up to 20 chars (+1 for '\0')
-    .u8_zone_number     = 5,
-    .u8_node_address    = 12,
-    .u8_device_address  = 7,
-    .u8_device_type     = 2,
+    .u16_event_id = 2010,
+    .log_num = 56,
+    .au8_device_text = "Sensor Activated", // up to 20 chars (+1 for '\0')
+    .u8_zone_number = 5,
+    .u8_node_address = 12,
+    .u8_device_address = 7,
+    .u8_device_type = 2,
     .u8_device_sub_type = 1,
-    .u8_date            = 8,
-    .u8_month           = 11,
-    .u8_year            = 25,
-    .u8_hours           = 14,
-    .u8_minutes         = 37,
-    .u8_seconds         = 52,
-     	.serial_no    = 5000,
-    .u8_logbitoffset    = 3,
-    .u16_crc            = 0xABCD,               // placeholder CRC
-    .u16_source         = 0X400B,
-	.payload_length = 42,
+    .u8_date = 8,
+    .u8_month = 11,
+    .u8_year = 25,
+    .u8_hours = 14,
+    .u8_minutes = 37,
+    .u8_seconds = 52,
+    .serial_no = 5000,
+    .u8_logbitoffset = 3,
+    .u16_crc = 0xABCD, // placeholder CRC
+    .u16_source = 0X400B,
+    .payload_length = 42,
 };
-
-
 
 /*status update structure*/
 typedef struct
 {
     uint16_t sl_no;
-    uint8_t  status[10];
+    uint8_t status[10];
 } status_st;
 
 /*socket file descriptor structure*/
@@ -250,11 +248,11 @@ static int mqtt_lwip_connect(void *context, const char *host, word16 port, int t
  */
 static int mqtt_lwip_read(void *context, byte *buf, int len, int timeout_ms)
 {
-   
+
     int i32_recvd;
     fd_set readset;
     struct timeval tv;
-     MqttLwipContext *ctx = (MqttLwipContext *)context;
+    MqttLwipContext *ctx = (MqttLwipContext *)context;
 
     FD_ZERO(&readset);
     FD_SET(ctx->socket_fd, &readset);
@@ -301,7 +299,7 @@ static int mqtt_lwip_read(void *context, byte *buf, int len, int timeout_ms)
  */
 static int mqtt_lwip_write(void *context, const byte *buf, int len, int timeout_ms)
 {
-   
+
     int i32_sent;
     fd_set writeset;
     struct timeval tv;
@@ -428,154 +426,313 @@ static int message_callback(struct _MqttClient *client, MqttMessage *message, by
  * @author shameem
  * @param None
  */
-void mqtt_task(void)
+void mqtt_process(void)
 {
-    uint8_t u8_mqtt_state = MQTT_INIT;
+    static uint8_t u8_mqtt_state = MQTT_INIT;
     MqttPublish publish;
     uint8_t au8_status_buf[] = "{\n  \"serialNumber\": \"5000\",\n  \"status\": \"active\"\n}";
     ip_addr_t ip_address;
-	
-	uint16_t temp_cnt = 0;
+
+    static uint16_t temp_cnt = 0;
 
     int i32_rc;
 
-    while (1)
+    // while (1)
+    // {
+    switch (u8_mqtt_state)
     {
-        switch (u8_mqtt_state)
+    case MQTT_INIT:
+    {
+        MqttNet_Init(&net);
+
+        client.msg_cb = message_callback;
+
+//        wolfSSL_Debugging_ON();
+//        wolfSSL_SetLoggingCb(wolfssl_print);
+
+        /* Initialize network and client */
+        i32_rc = MqttClient_Init(&client, &net, message_callback, txtx_buf, sizeof(txtx_buf),
+                                 rxrx_buf, sizeof(rxrx_buf), 1000);
+
+        if (i32_rc != MQTT_CODE_SUCCESS)
         {
-        case MQTT_INIT:
+            sprintf(u8_print_buff, "\r\nMqttClient_Init error: %d\n", i32_rc);
+            debug_msg(u8_print_buff);
+        }
+
+        /*Try connecting to brocker until internet is available*/
+        do
         {
-            MqttNet_Init(&net);
-
-            client.msg_cb = message_callback;
-
-            wolfSSL_Debugging_ON();
-            wolfSSL_SetLoggingCb(wolfssl_print);
-
-            /* Initialize network and client */
-            i32_rc = MqttClient_Init(&client, &net, message_callback, txtx_buf, sizeof(txtx_buf),
-                                     rxrx_buf, sizeof(rxrx_buf), 1000);
-
+            i32_rc = MqttClient_NetConnect(&client, MQTT_HOST, MQTT_PORT, 1000, 0, mqtt_tls_cb);
             if (i32_rc != MQTT_CODE_SUCCESS)
             {
-                sprintf(u8_print_buff, "\r\nMqttClient_Init error: %d\n", i32_rc);
+                sprintf(u8_print_buff, "\r\nMqttClient_Netconnect error: %d\n", i32_rc);
                 debug_msg(u8_print_buff);
             }
+        } while (i32_rc != MQTT_CODE_SUCCESS);
 
-            /*Try connecting to brocker until internet is available*/
-            do
-            {
-                i32_rc = MqttClient_NetConnect(&client, MQTT_HOST, MQTT_PORT, 1000, 0, mqtt_tls_cb);
-                if (i32_rc != MQTT_CODE_SUCCESS)
-                {
-                    sprintf(u8_print_buff, "\r\nMqttClient_Netconnect error: %d\n", i32_rc);
-                    debug_msg(u8_print_buff);
-                }
-            } while (i32_rc != MQTT_CODE_SUCCESS);
+        MqttConnect connect;
+        memset(&connect, 0, sizeof(connect));
+        connect.keep_alive_sec = 60;
+        connect.clean_session = 1;
+        connect.client_id = "stm5000";
 
-            MqttConnect connect;
-            memset(&connect, 0, sizeof(connect));
-            connect.keep_alive_sec = 60;
-            connect.clean_session = 1;
-            connect.client_id = "stm5000";
-
-            i32_rc = MqttClient_Connect(&client, &connect);
-            if (i32_rc == MQTT_CODE_SUCCESS)
-            {
-                debug_msg("MQTT CONNECTED!\n");
-            }
-            else
-            {
-                sprintf(u8_print_buff, "\r\nMQTT connect error: %d\n", i32_rc);
-                debug_msg(u8_print_buff);
-            }
-
-            // Step 4: Subscribe to topics
-            MqttSubscribe mqtt_sub;
-            MqttTopic topics[1];
-            memset(&mqtt_sub, 0, sizeof(mqtt_sub));
-            mqtt_sub.packet_id = 1;
-            mqtt_sub.topic_count = 1;
-            mqtt_sub.topics = topics;
-            topics[0].topic_filter = "Emcus/ota/command";
-            topics[0].qos = MQTT_QOS_0;
-
-            i32_rc = MqttClient_Subscribe(&client, &mqtt_sub);
-            if (i32_rc != MQTT_CODE_SUCCESS)
-            {
-                sprintf(u8_print_buff, "Subscribe failed: %d\n", i32_rc);
-                debug_msg(u8_print_buff);
-            }
-            else
-            {
-                debug_msg("Subscribed to stm32/test\n");
-            }
-
-            debug_msg("Wolf mQTT init is done starting routine opertions\n");
-            u8_mqtt_state = MQTT_ROUTINE_OPERATION;
-
-            break;
-        }
-
-        case MQTT_ROUTINE_OPERATION:
+        i32_rc = MqttClient_Connect(&client, &connect);
+        if (i32_rc == MQTT_CODE_SUCCESS)
         {
-            memset(&publish, 0, sizeof(publish));
-            publish.qos = 0;
-            publish.packet_id = 4;
-            publish.topic_name = MQTT_TOPIC;
-            publish.buffer = (byte *)au8_status_buf;
-            publish.total_len = (word16)strlen(au8_status_buf);
-
-            // Step 5: Message processing loop
-            debug_msg("Waiting for messages...\n");
-            while (u8_mqtt_state != MQTT_INIT)
-            {
-
-                i32_rc = MqttClient_WaitMessage(&client, 5000); // Wait up to 5 seconds
-                i32_rc = MqttClient_Ping(&client);
-                if (1 == u8_one_sec_flag)
-                {
-                    u8_one_sec_flag = 0U;
-                    i32_rc = MqttClient_Publish(&client, &publish);
-									temp_cnt++;
-									if(temp_cnt > 30)
-									{
-										mqtt_publish_fire_fault(NULL,0);
-										temp_cnt = 0;
-									}
-                }
-
-                if (i32_rc == MQTT_CODE_SUCCESS)
-                {
-                    // Incoming PUBLISH message will trigger mqtt_message_cb automatically
-                }
-                else if (i32_rc == MQTT_CODE_CONTINUE)
-                {
-                    // No message yet, timeout expired
-                    debug_msg("\n.");
-                    i32_rc = MqttClient_Ping(&client);
-                    continue;
-                }
-                else
-                {
-                    sprintf(u8_print_buff, "WaitMessage error: %d\n", i32_rc);
-                    debug_msg(u8_print_buff);
-                    u8_mqtt_state = MQTT_INIT;
-                    debug_msg("Internet Error waiting for internet\r\n");
-                    MqttClient_Disconnect(&client);
-                    MqttClient_NetDisconnect(&client);
-                }
-            }
-            break;
+            debug_msg("MQTT CONNECTED!\n");
         }
-
-        default:
+        else
         {
-            break;
+            sprintf(u8_print_buff, "\r\nMQTT connect error: %d\n", i32_rc);
+            debug_msg(u8_print_buff);
         }
+
+        // Step 4: Subscribe to topics
+        MqttSubscribe mqtt_sub;
+        MqttTopic topics[1];
+        memset(&mqtt_sub, 0, sizeof(mqtt_sub));
+        mqtt_sub.packet_id = 1;
+        mqtt_sub.topic_count = 1;
+        mqtt_sub.topics = topics;
+        topics[0].topic_filter = "Emcus/ota/command";
+        topics[0].qos = MQTT_QOS_0;
+
+        i32_rc = MqttClient_Subscribe(&client, &mqtt_sub);
+        if (i32_rc != MQTT_CODE_SUCCESS)
+        {
+            sprintf(u8_print_buff, "Subscribe failed: %d\n", i32_rc);
+            debug_msg(u8_print_buff);
         }
+        else
+        {
+            debug_msg("Subscribed to stm32/test\n");
+        }
+
+        debug_msg("Wolf mQTT init is done starting routine opertions\n");
+        u8_mqtt_state = MQTT_ROUTINE_OPERATION;
+
+        break;
     }
+
+    case MQTT_ROUTINE_OPERATION:
+    {
+        memset(&publish, 0, sizeof(publish));
+        publish.qos = 0;
+        publish.packet_id = 4;
+        publish.topic_name = MQTT_TOPIC;
+        publish.buffer = (byte *)au8_status_buf;
+        publish.total_len = (word16)strlen(au8_status_buf);
+
+        // Step 5: Message processing loop
+//        debug_msg("Waiting for messages...\n");
+        // while (u8_mqtt_state != MQTT_INIT)
+        // {
+
+        i32_rc = MqttClient_WaitMessage(&client, 5000); // Wait up to 5 seconds
+        i32_rc = MqttClient_Ping(&client);
+        if (1 == u8_one_sec_flag)
+        {
+            u8_one_sec_flag = 0U;
+            i32_rc = MqttClient_Publish(&client, &publish);
+            temp_cnt++;
+            if (temp_cnt > 60)
+            {
+                mqtt_publish_fire_fault(NULL, 0);
+							BaseType_t xHigherPriorityTaskWoken = pdFAIL;
+              BaseType_t pxHigherPriorityTaskWoken = pdFAIL;
+              queue_data_def eth_data = {0};
+							 eth_data.service = ETH_CLOUD_FW_DOWNLOAD_QUEUE;
+                xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+                temp_cnt = 0;
+            }
+        }
+
+        if (i32_rc == MQTT_CODE_SUCCESS)
+        {
+            // Incoming PUBLISH message will trigger mqtt_message_cb automatically
+        }
+        else if (i32_rc == MQTT_CODE_CONTINUE)
+        {
+            // No message yet, timeout expired
+            debug_msg("\n.");
+            i32_rc = MqttClient_Ping(&client);
+            // continue;
+        }
+        else
+        {
+            sprintf(u8_print_buff, "WaitMessage error: %d\n", i32_rc);
+            debug_msg(u8_print_buff);
+            u8_mqtt_state = MQTT_INIT;
+            debug_msg("Internet Error waiting for internet\r\n");
+            MqttClient_Disconnect(&client);
+            MqttClient_NetDisconnect(&client);
+        }
+        // }
+        break;
+    }
+
+    default:
+    {
+        break;
+    }
+    }
+    // }
 }
+
+// /**
+//  * @brief MQTT task to handle connection and messaging
+//  * @author shameem
+//  * @param None
+//  */
+// void mqtt_task(void)
+// {
+//     static uint8_t u8_mqtt_state = MQTT_INIT;
+//     MqttPublish publish;
+//     uint8_t au8_status_buf[] = "{\n  \"serialNumber\": \"5000\",\n  \"status\": \"active\"\n}";
+//     ip_addr_t ip_address;
+
+// 	uint16_t temp_cnt = 0;
+
+//     int i32_rc;
+
+//     while (1)
+//     {
+//         switch (u8_mqtt_state)
+//         {
+//         case MQTT_INIT:
+//         {
+//             MqttNet_Init(&net);
+
+//             client.msg_cb = message_callback;
+
+//             wolfSSL_Debugging_ON();
+//             wolfSSL_SetLoggingCb(wolfssl_print);
+
+//             /* Initialize network and client */
+//             i32_rc = MqttClient_Init(&client, &net, message_callback, txtx_buf, sizeof(txtx_buf),
+//                                      rxrx_buf, sizeof(rxrx_buf), 1000);
+
+//             if (i32_rc != MQTT_CODE_SUCCESS)
+//             {
+//                 sprintf(u8_print_buff, "\r\nMqttClient_Init error: %d\n", i32_rc);
+//                 debug_msg(u8_print_buff);
+//             }
+
+//             /*Try connecting to brocker until internet is available*/
+//             do
+//             {
+//                 i32_rc = MqttClient_NetConnect(&client, MQTT_HOST, MQTT_PORT, 1000, 0, mqtt_tls_cb);
+//                 if (i32_rc != MQTT_CODE_SUCCESS)
+//                 {
+//                     sprintf(u8_print_buff, "\r\nMqttClient_Netconnect error: %d\n", i32_rc);
+//                     debug_msg(u8_print_buff);
+//                 }
+//             } while (i32_rc != MQTT_CODE_SUCCESS);
+
+//             MqttConnect connect;
+//             memset(&connect, 0, sizeof(connect));
+//             connect.keep_alive_sec = 60;
+//             connect.clean_session = 1;
+//             connect.client_id = "stm5000";
+
+//             i32_rc = MqttClient_Connect(&client, &connect);
+//             if (i32_rc == MQTT_CODE_SUCCESS)
+//             {
+//                 debug_msg("MQTT CONNECTED!\n");
+//             }
+//             else
+//             {
+//                 sprintf(u8_print_buff, "\r\nMQTT connect error: %d\n", i32_rc);
+//                 debug_msg(u8_print_buff);
+//             }
+
+//             // Step 4: Subscribe to topics
+//             MqttSubscribe mqtt_sub;
+//             MqttTopic topics[1];
+//             memset(&mqtt_sub, 0, sizeof(mqtt_sub));
+//             mqtt_sub.packet_id = 1;
+//             mqtt_sub.topic_count = 1;
+//             mqtt_sub.topics = topics;
+//             topics[0].topic_filter = "Emcus/ota/command";
+//             topics[0].qos = MQTT_QOS_0;
+
+//             i32_rc = MqttClient_Subscribe(&client, &mqtt_sub);
+//             if (i32_rc != MQTT_CODE_SUCCESS)
+//             {
+//                 sprintf(u8_print_buff, "Subscribe failed: %d\n", i32_rc);
+//                 debug_msg(u8_print_buff);
+//             }
+//             else
+//             {
+//                 debug_msg("Subscribed to stm32/test\n");
+//             }
+
+//             debug_msg("Wolf mQTT init is done starting routine opertions\n");
+//             u8_mqtt_state = MQTT_ROUTINE_OPERATION;
+
+//             break;
+//         }
+
+//         case MQTT_ROUTINE_OPERATION:
+//         {
+//             memset(&publish, 0, sizeof(publish));
+//             publish.qos = 0;
+//             publish.packet_id = 4;
+//             publish.topic_name = MQTT_TOPIC;
+//             publish.buffer = (byte *)au8_status_buf;
+//             publish.total_len = (word16)strlen(au8_status_buf);
+
+//             // Step 5: Message processing loop
+//             debug_msg("Waiting for messages...\n");
+//             while (u8_mqtt_state != MQTT_INIT)
+//             {
+
+//                 i32_rc = MqttClient_WaitMessage(&client, 5000); // Wait up to 5 seconds
+//                 i32_rc = MqttClient_Ping(&client);
+//                 if (1 == u8_one_sec_flag)
+//                 {
+//                     u8_one_sec_flag = 0U;
+//                     i32_rc = MqttClient_Publish(&client, &publish);
+// 									temp_cnt++;
+// 									if(temp_cnt > 30)
+// 									{
+// 										mqtt_publish_fire_fault(NULL,0);
+// 										temp_cnt = 0;
+// 									}
+//                 }
+
+//                 if (i32_rc == MQTT_CODE_SUCCESS)
+//                 {
+//                     // Incoming PUBLISH message will trigger mqtt_message_cb automatically
+//                 }
+//                 else if (i32_rc == MQTT_CODE_CONTINUE)
+//                 {
+//                     // No message yet, timeout expired
+//                     debug_msg("\n.");
+//                     i32_rc = MqttClient_Ping(&client);
+//                     continue;
+//                 }
+//                 else
+//                 {
+//                     sprintf(u8_print_buff, "WaitMessage error: %d\n", i32_rc);
+//                     debug_msg(u8_print_buff);
+//                     u8_mqtt_state = MQTT_INIT;
+//                     debug_msg("Internet Error waiting for internet\r\n");
+//                     MqttClient_Disconnect(&client);
+//                     MqttClient_NetDisconnect(&client);
+//                 }
+//             }
+//             break;
+//         }
+
+//         default:
+//         {
+//             break;
+//         }
+//         }
+//     }
+// }
 
 /**
  * @brief  Publish a fire fault message to the MQTT broker.
@@ -586,17 +743,16 @@ void mqtt_task(void)
  */
 int mqtt_publish_fire_fault(uint8_t *payload, uint16_t payload_len)
 {
-	  uint8_t u8_print_buff[100];
-    int i32_rc = 0; 
+    uint8_t u8_print_buff[100];
+    int i32_rc = 0;
     MqttPublish publish = {0};
     publish.qos = 2;
     publish.packet_id = 4;
     publish.topic_name = MQTT_FIRE_FAULT_TOPIC;
-    publish.buffer = (byte *)&fire;//payload;
-    publish.total_len = (word16)sizeof(EventLog_t);//payload_len;
+    publish.buffer = (byte *)&fire;                 // payload;
+    publish.total_len = (word16)sizeof(EventLog_t); // payload_len;
 
-		
     i32_rc = MqttClient_Publish(&client, &publish);
-		  debug_msg("published fire LOG\r\n");
+    debug_msg("published fire LOG\r\n");
     return i32_rc;
 }

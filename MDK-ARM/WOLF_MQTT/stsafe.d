@@ -58,9 +58,14 @@ wolf_mqtt\stsafe.o: C:\keil\ARM\ARMCC\Bin\..\include\ctype.h
 wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/port/st/stsafe.h
 wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/ecc.h
 wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/wolfmath.h
-wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/tfm.h
-wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/error-crypt.h
-wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/random.h
+wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sp_int.h
+wolf_mqtt\stsafe.o: C:\keil\ARM\ARMCC\Bin\..\include\limits.h
+wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/hash.h
+wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha.h
 wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha256.h
+wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha512.h
+wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha3.h
+wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/random.h
 wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/wolfmath.h
+wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/error-crypt.h
 wolf_mqtt\stsafe.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/logging.h

@@ -57,3 +57,15 @@ wolf_mqtt\sakke.o: C:\keil\ARM\ARMCC\Bin\..\include\stdlib.h
 wolf_mqtt\sakke.o: C:\keil\ARM\ARMCC\Bin\..\include\string.h
 wolf_mqtt\sakke.o: C:\keil\ARM\ARMCC\Bin\..\include\stdio.h
 wolf_mqtt\sakke.o: C:\keil\ARM\ARMCC\Bin\..\include\ctype.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sp.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/wolfmath.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sp_int.h
+wolf_mqtt\sakke.o: C:\keil\ARM\ARMCC\Bin\..\include\limits.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/hash.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha256.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha512.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha3.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/random.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/wolfmath.h
+wolf_mqtt\sakke.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/ecc.h

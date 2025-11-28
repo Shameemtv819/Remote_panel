@@ -18,7 +18,7 @@
 #define MODE_CHUNK         	    (1U)
 #define CHUNK_SIZE              (0x2000U)
 #define SERVER_PORT        	    (443U)
-#define WOLFSS_DEBUG 			(1U)
+#define WOLFSS_DEBUG 			(0U)
 #define HTTPS_STREAM 			(1U)
 #define FORMAT_BYTES 			(12U)
 #define RETRY_DELAY_MS 			(100U)
@@ -31,13 +31,13 @@
 #define CLEAR                   (0U)
 
 #define CONTENT_LENGTH_STR "file-size: "
-#define POST_API_LOG       "/api/logs/gemini"
+#define POST_API_LOG       "/api/logs/Emcus"
 #define FILE_RANGE_STR     "Start-Non-FF-Packet: "
 #define HTTPS_HOST         "us-central1-ip-gsm-ts.cloudfunctions.net"
 #define FIRMWARE_PATH      "/api/files/gsm/downloadRange/firmware_AURA.bin"
-#define REQ_FILE_SIZE      "/api/files/size?fileName=Gemini/firmware_AURA.bin"
+#define REQ_FILE_SIZE      "/api/files/size?fileName=Emcus/firmware_AURA.bin"
 #define RESET_CURSOR       "/api/files/reset-cursor?fileName=firmware_AURA.bin"
-#define REQ_FILE_RANGE     "/api/files/gsm/downloadRange/gemini/firmware_AURA.bin"
+#define REQ_FILE_RANGE     "/api/files/gsm/downloadRange/Emcus/firmware_AURA.bin"
 
 #define LAN8742_PHY_ISR 0x1D
 /******************************************************************* Variables ******************************************************************/

@@ -64,5 +64,6 @@ wolf_mqtt\ed25519.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/
 wolf_mqtt\ed25519.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/error-crypt.h
 wolf_mqtt\ed25519.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/hash.h
 wolf_mqtt\ed25519.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha.h
+wolf_mqtt\ed25519.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha3.h
 wolf_mqtt\ed25519.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfcrypt/src/misc.c
 wolf_mqtt\ed25519.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/misc.h

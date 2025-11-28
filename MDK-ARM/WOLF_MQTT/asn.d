@@ -58,13 +58,15 @@ wolf_mqtt\asn.o: C:\keil\ARM\ARMCC\Bin\..\include\stdio.h
 wolf_mqtt\asn.o: C:\keil\ARM\ARMCC\Bin\..\include\ctype.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/rsa.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/wolfmath.h
-wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/tfm.h
-wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/random.h
-wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha256.h
-wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/wolfmath.h
+wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sp_int.h
+wolf_mqtt\asn.o: C:\keil\ARM\ARMCC\Bin\..\include\limits.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/hash.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha.h
+wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha256.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha512.h
+wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/sha3.h
+wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/random.h
+wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/wolfmath.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/asn.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/dh.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/wolfssl/wolfcrypt/asn_public.h
@@ -108,7 +110,6 @@ wolf_mqtt\asn.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/arch.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/LwIP/system/arch/cc.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/LwIP/system/arch/cpu.h
 wolf_mqtt\asn.o: C:\keil\ARM\ARMCC\Bin\..\include\inttypes.h
-wolf_mqtt\asn.o: C:\keil\ARM\ARMCC\Bin\..\include\limits.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/ip_addr.h
 wolf_mqtt\asn.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/def.h

@@ -66,6 +66,7 @@ extern RTC_HandleTypeDef hrtc;
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define WOLFSSL_ALT_CERT_CHAINS
 
 /* USER CODE BEGIN Private defines */
 
