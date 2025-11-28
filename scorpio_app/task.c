@@ -9,7 +9,7 @@
 #include "task.h"
 /***************************************************************** Macros ********************************************************************/
 #define QUEUE_LENGTH 20
-#define MAX_DHCP_TRIES 10
+#define MAX_DHCP_TRIES 3
 
 #define FIRE_START (1000)
 #define FAULT_START (2000)

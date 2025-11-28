@@ -158,7 +158,7 @@ void handle_http_GET_request(char *pu8_http_buf,struct netconn *conn,char *au8_t
 
           // adding IP to existing html page
           sprintf((char *)status_temp_buf, (char *)au8_login_page_html, pf_config->IP.ip_addr, pf_config->IP.ip_addr,
-                  pf_config->IP.ip_addr, pf_config->IP.ip_addr);
+                  pf_config->IP.ip_addr, pf_config->IP.ip_addr, pf_config->IP.ip_addr);
 
           http_cli_header_response(buff, strlen((char *)status_temp_buf), TYPE_HTML);
 

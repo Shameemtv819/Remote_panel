@@ -122,10 +122,10 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
  // MX_CRC_Init();
- // MX_RNG_Init();
+  MX_RNG_Init();
   //MX_USART2_UART_Init();
   MX_TIM12_Init();
- // MX_USART1_UART_Init();
+  //MX_USART1_UART_Init();
  // MX_USART3_UART_Init();
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
@@ -240,26 +240,26 @@ void SystemClock_Config(void)
   * @param None
   * @retval None
   */
-//static void MX_CRC_Init(void)
-//{
+static void MX_CRC_Init(void)
+{
 
-//  /* USER CODE BEGIN CRC_Init 0 */
+  /* USER CODE BEGIN CRC_Init 0 */
 
-//  /* USER CODE END CRC_Init 0 */
+  /* USER CODE END CRC_Init 0 */
 
-//  /* USER CODE BEGIN CRC_Init 1 */
+  /* USER CODE BEGIN CRC_Init 1 */
 
-//  /* USER CODE END CRC_Init 1 */
-//  hcrc.Instance = CRC;
-//  if (HAL_CRC_Init(&hcrc) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
-//  /* USER CODE BEGIN CRC_Init 2 */
+  /* USER CODE END CRC_Init 1 */
+  hcrc.Instance = CRC;
+  if (HAL_CRC_Init(&hcrc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN CRC_Init 2 */
 
-//  /* USER CODE END CRC_Init 2 */
+  /* USER CODE END CRC_Init 2 */
 
-//}
+}
 
 /**
   * @brief RNG Initialization Function
@@ -394,11 +394,11 @@ HAL_NVIC_EnableIRQ(TIM8_BRK_TIM12_IRQn);
 
 }
 
-///**
-//  * @brief USART1 Initialization Function
-//  * @param None
-//  * @retval None
-//  */
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
 //static void MX_USART1_UART_Init(void)
 //{
 
