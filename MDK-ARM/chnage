@@ -62,7 +62,7 @@ EventLog_t fire = {
 typedef struct
 {
     uint16_t sl_no;
-    uint8_t status[10];
+    uint8_t status;
 } status_st;
 
 /*socket file descriptor structure*/
@@ -517,13 +517,15 @@ void mqtt_process(void)
 
     case MQTT_ROUTINE_OPERATION:
     {
-        memset(&publish, 0, sizeof(publish));
+			status_st st_status = {.sl_no = 5000,
+			                       .status = 0};
+
+			  memset(&publish, 0, sizeof(publish));
         publish.qos = 0;
         publish.packet_id = 4;
         publish.topic_name = MQTT_TOPIC;
-        publish.buffer = (byte *)au8_status_buf;
-        publish.total_len = (word16)strlen(au8_status_buf);
-
+        publish.buffer = (byte *)&st_status;
+        publish.total_len = (word16)sizeof(status_st);
         // Step 5: Message processing loop
 //        debug_msg("Waiting for messages...\n");
         // while (u8_mqtt_state != MQTT_INIT)
@@ -535,17 +537,17 @@ void mqtt_process(void)
         {
             u8_one_sec_flag = 0U;
             i32_rc = MqttClient_Publish(&client, &publish);
-            temp_cnt++;
-            if (temp_cnt > 60)
-            {
-                mqtt_publish_fire_fault(NULL, 0);
-							BaseType_t xHigherPriorityTaskWoken = pdFAIL;
-              BaseType_t pxHigherPriorityTaskWoken = pdFAIL;
-              queue_data_def eth_data = {0};
-							 eth_data.service = ETH_CLOUD_FW_DOWNLOAD_QUEUE;
-                xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
-                temp_cnt = 0;
-            }
+//            temp_cnt++;
+//            if (temp_cnt > 60)
+//            {
+//                mqtt_publish_fire_fault(NULL, 0);
+//							BaseType_t xHigherPriorityTaskWoken = pdFAIL;
+//              BaseType_t pxHigherPriorityTaskWoken = pdFAIL;
+//              queue_data_def eth_data = {0};
+//							 eth_data.service = ETH_CLOUD_FW_DOWNLOAD_QUEUE;
+//                xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+//                temp_cnt = 0;
+//            }
         }
 
         if (i32_rc == MQTT_CODE_SUCCESS)

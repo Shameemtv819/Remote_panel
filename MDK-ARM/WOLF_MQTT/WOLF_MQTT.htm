@@ -3,7 +3,7 @@
 <title>Static Call Graph - [WOLF_MQTT\WOLF_MQTT.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image WOLF_MQTT\WOLF_MQTT.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Nov 28 18:07:16 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Dec 02 12:10:22 2025
 <BR><P>
 <H3>Maximum Stack Usage =       2764 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -198,12 +198,12 @@ Function Pointers
  <LI><a href="#[9a]">lwip_netconn_do_recv</a> from api_msg.o(i.lwip_netconn_do_recv) referenced from api_lib.o(i.netconn_recv_data)
  <LI><a href="#[9b]">lwip_netconn_do_send</a> from api_msg.o(i.lwip_netconn_do_send) referenced from api_lib.o(i.netconn_send)
  <LI><a href="#[9c]">lwip_netconn_do_write</a> from api_msg.o(i.lwip_netconn_do_write) referenced from api_lib.o(i.netconn_write_partly)
- <LI><a href="#[8f]">message_callback</a> from mqtt_1.o(i.message_callback) referenced from mqtt_1.o(i.mqtt_process)
- <LI><a href="#[8b]">mqtt_lwip_connect</a> from mqtt_1.o(i.mqtt_lwip_connect) referenced from mqtt_1.o(i.mqtt_process)
- <LI><a href="#[8e]">mqtt_lwip_disconnect</a> from mqtt_1.o(i.mqtt_lwip_disconnect) referenced from mqtt_1.o(i.mqtt_process)
- <LI><a href="#[8c]">mqtt_lwip_read</a> from mqtt_1.o(i.mqtt_lwip_read) referenced from mqtt_1.o(i.mqtt_process)
- <LI><a href="#[8d]">mqtt_lwip_write</a> from mqtt_1.o(i.mqtt_lwip_write) referenced from mqtt_1.o(i.mqtt_process)
- <LI><a href="#[90]">mqtt_tls_cb</a> from mqtt_1.o(i.mqtt_tls_cb) referenced from mqtt_1.o(i.mqtt_process)
+ <LI><a href="#[8f]">message_callback</a> from mqtt_app.o(i.message_callback) referenced from mqtt_app.o(i.mqtt_process)
+ <LI><a href="#[8b]">mqtt_lwip_connect</a> from mqtt_app.o(i.mqtt_lwip_connect) referenced from mqtt_app.o(i.mqtt_process)
+ <LI><a href="#[8e]">mqtt_lwip_disconnect</a> from mqtt_app.o(i.mqtt_lwip_disconnect) referenced from mqtt_app.o(i.mqtt_process)
+ <LI><a href="#[8c]">mqtt_lwip_read</a> from mqtt_app.o(i.mqtt_lwip_read) referenced from mqtt_app.o(i.mqtt_process)
+ <LI><a href="#[8d]">mqtt_lwip_write</a> from mqtt_app.o(i.mqtt_lwip_write) referenced from mqtt_app.o(i.mqtt_process)
+ <LI><a href="#[90]">mqtt_tls_cb</a> from mqtt_app.o(i.mqtt_tls_cb) referenced from mqtt_app.o(i.mqtt_process)
  <LI><a href="#[75]">netif_status_callback</a> from https_client_app.o(i.netif_status_callback) referenced from lwip.o(i.MX_LWIP_Init)
  <LI><a href="#[9d]">pbuf_free_ooseq_callback</a> from pbuf.o(i.pbuf_free_ooseq_callback) referenced from pbuf.o(i.pbuf_pool_is_empty)
  <LI><a href="#[85]">poll_tcp</a> from api_msg.o(i.poll_tcp) referenced from api_msg.o(i.lwip_netconn_do_close_internal)
@@ -1251,7 +1251,6 @@ Global Symbols
 <LI><a href="#[580]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;download_ota_file
 <LI><a href="#[584]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_content_length
 <LI><a href="#[5ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_http_GET_request
-<LI><a href="#[613]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mqtt_process
 <LI><a href="#[627]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lte_verify_at_rx_cmds
 <LI><a href="#[625]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lte_send_at_cmds
 <LI><a href="#[631]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lte_send_data_to_cloud_post
@@ -1330,6 +1329,10 @@ Global Symbols
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AesSetKey_C
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_GCM_encrypt_C
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_GCM_decrypt_C
+<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
+<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
+<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
+<LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetExtIV
 <LI><a href="#[3f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessUserCert
 <LI><a href="#[461]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Chacha_SetKey
 <LI><a href="#[465]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetIV
@@ -1361,10 +1364,6 @@ Global Symbols
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChachaAEADEncrypt
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildMessage
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocateSuites
-<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
-<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
-<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
-<LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetExtIV
 <LI><a href="#[45a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13ServerHello
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13ClientHello
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateSigData
@@ -1384,13 +1383,16 @@ Global Symbols
 <LI><a href="#[489]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLSX_KeyShareEntry_Parse
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ParseCert
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocCopyDer
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacSetKey_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
 <LI><a href="#[370]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaUpdate
 <LI><a href="#[7be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaFinal
 <LI><a href="#[7bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha224Final
 <LI><a href="#[5a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ed25519_smult
+<LI><a href="#[6d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sc_muladd
+<LI><a href="#[5ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ge_double_scalarmult_vartime
+<LI><a href="#[802]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_public_ex
+<LI><a href="#[801]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_key_ex
 <LI><a href="#[41f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaPrivateDecryptEx
 <LI><a href="#[41e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaPad_PSS
 <LI><a href="#[41b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaPad_OAEP
@@ -1399,14 +1401,11 @@ Global Symbols
 <LI><a href="#[366]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_gen
 <LI><a href="#[36a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_df
 <LI><a href="#[36b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_DRBG_Reseed
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_only
 <LI><a href="#[1e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaPSS_CheckPadding_ex2
 <LI><a href="#[45d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetASN_Items
 <LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAsymKey
-<LI><a href="#[6d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sc_muladd
-<LI><a href="#[5ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ge_double_scalarmult_vartime
-<LI><a href="#[802]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_public_ex
-<LI><a href="#[801]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_key_ex
 <LI><a href="#[476]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha512_Family_Final
 <LI><a href="#[475]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha512Update
 <LI><a href="#[471]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha3Update
@@ -1448,6 +1447,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write_default_data
 <LI><a href="#[5db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_task_process
 <LI><a href="#[613]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mqtt_process
+<LI><a href="#[7a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Chacha_wordtobyte
 <LI><a href="#[478]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Copy
 <LI><a href="#[7e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Copy
 <LI><a href="#[7e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Copy
@@ -1457,7 +1457,6 @@ Global Symbols
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FillSigner
 <LI><a href="#[810]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_DupSession
 <LI><a href="#[5a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ed25519_smult
-<LI><a href="#[7a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Chacha_wordtobyte
 <LI><a href="#[801]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_key_ex
 <LI><a href="#[4fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_rshb
 <LI><a href="#[758]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_ecc_sign_256
@@ -1544,6 +1543,7 @@ Global Symbols
 <LI><a href="#[5f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;segregate_cert_url_json_payload
 <LI><a href="#[5f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;segregate_IP_config_json_payload
 <LI><a href="#[5f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;segregate_GSM_conf_json_payload
+<LI><a href="#[4bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Extract_ex
 <LI><a href="#[395]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MakeTlsMasterSecret
 <LI><a href="#[443]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_export_x963
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildTls13Message
@@ -1554,7 +1554,6 @@ Global Symbols
 <LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoClientHello
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocateSuites
 <LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocateCtxSuites
-<LI><a href="#[4bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Extract_ex
 <LI><a href="#[49d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLSX_KeyShare_ProcessDh
 <LI><a href="#[495]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLSX_KeyShare_GenEccKey
 <LI><a href="#[494]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TLSX_KeyShare_GenDhKey
@@ -1622,8 +1621,7 @@ Global Symbols
 <LI><a href="#[616]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mqtt_publish_fire_fault
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fclose_internal
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fopen
-<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
-<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_initio
 <LI><a href="#[7f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_check_r_s_range
 <LI><a href="#[59f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_verify_hash
 <LI><a href="#[59e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_sign_hash_sw
@@ -1652,6 +1650,7 @@ Global Symbols
 <LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAuthKeyId
 <LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAuthInfo
 <LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAltNames
+<LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacInit
 <LI><a href="#[462]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesInit
 <LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetKeys
 <LI><a href="#[468]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_set_options
@@ -1682,7 +1681,6 @@ Global Symbols
 <LI><a href="#[1bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChachaAEADEncrypt
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChachaAEADDecrypt
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildMessage
-<LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacInit
 <LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tls13DeriveKey
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13ClientHello
 <LI><a href="#[456]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13CertificateVerify
@@ -1698,6 +1696,7 @@ Global Symbols
 <LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CM_VerifyBuffer_ex
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
+<LI><a href="#[6d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sc_muladd
 <LI><a href="#[419]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaMGF1
 <LI><a href="#[411]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaFunctionSync
 <LI><a href="#[405]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaFunctionPrivate
@@ -1708,13 +1707,14 @@ Global Symbols
 <LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeECC_DSA_Sig_Ex
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAsymKey_Assign
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckBitString
-<LI><a href="#[6d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sc_muladd
 <LI><a href="#[5a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ed25519_hash_init
 <LI><a href="#[7fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_verify_hash_ex
 <LI><a href="#[7fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_sign_hash_ex
 <LI><a href="#[7fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_shared_secret_gen_sync
 <LI><a href="#[593]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_mul2add
 <LI><a href="#[58f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_map_ex
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
+<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 <LI><a href="#[386]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitSha256
 <LI><a href="#[403]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaFunctionCheckIn
 <LI><a href="#[743]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_3072_mont_reduce_53
@@ -1730,7 +1730,6 @@ Global Symbols
 <LI><a href="#[6fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_2048_mod_exp_72
 <LI><a href="#[6f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_2048_mod_exp_36
 <LI><a href="#[6ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_2048_mod_exp_2_72
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_initio
 <LI><a href="#[4f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_lshb
 <LI><a href="#[751]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_ModExp_1536
 <LI><a href="#[750]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_ModExp_1024
@@ -2791,18 +2790,18 @@ Global Symbols
 <P><STRONG><a name="[1f0]"></a>CreateRSAEncodedSig</STRONG> (Thumb, 170 bytes, Stack size 248 bytes, tls13.o(i.CreateRSAEncodedSig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 520<LI>Call Chain = CreateRSAEncodedSig &rArr; wc_Sha512Final &rArr; Sha512_Family_Final &rArr; Sha512Final &rArr; _Transform_Sha512 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
-<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Free
-<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
-<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Free
-<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
-<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha384
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256
+<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Free
+<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Free
+<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
+<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[456]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13CertificateVerify
 <LI><a href="#[284]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13CertificateVerify
@@ -3404,12 +3403,12 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> internal.o(i.InitSSL_Ctx)
 </UL>
 <P><STRONG><a name="[3f9]"></a>Error_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
-<BR><BR>[Called By]<UL><LI><a href="#[791]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
-<LI><a href="#[6d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
-<LI><a href="#[666]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcu_comm_uart_init
+<BR><BR>[Called By]<UL><LI><a href="#[666]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcu_comm_uart_init
 <LI><a href="#[638]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lte_uart_init
 <LI><a href="#[546]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;debug_uart_init
 <LI><a href="#[53a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc_init
+<LI><a href="#[791]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
+<LI><a href="#[6d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
 <LI><a href="#[5dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_write_default_data
 <LI><a href="#[5db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_task_process
 <LI><a href="#[5d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flash_open
@@ -6924,9 +6923,9 @@ Global Symbols
 <P><STRONG><a name="[230]"></a>Tls13DeriveKey</STRONG> (Thumb, 176 bytes, Stack size 152 bytes, tls13.o(i.Tls13DeriveKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 848<LI>Call Chain = Tls13DeriveKey &rArr; wc_Tls13_HKDF_Expand_Label_ex &rArr; wc_HKDF_Expand_ex &rArr; wc_HmacSetKey &rArr; wc_HmacSetKey_ex &rArr; wc_Sha3_512_Update &rArr; wc_Sha3Update &rArr; Sha3Update &rArr; BlockSha3
 </UL>
-<BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
+<BR>[Calls]<UL><LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
+<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256GetHash
-<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveTls13Keys
@@ -7306,7 +7305,6 @@ Global Symbols
 <LI><a href="#[586]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_free
 <LI><a href="#[80c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_Init
 <LI><a href="#[587]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_Cleanup
-<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[7f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_cache_load_item
 <LI><a href="#[4e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ecc_make_key_ex
 <LI><a href="#[2cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GeneratePrivateDh186
@@ -7331,6 +7329,7 @@ Global Symbols
 <LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfirmNameConstraints
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CheckCurve
 <LI><a href="#[7a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmEncrypt
+<LI><a href="#[4c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TranslateIoReturnCode
 <LI><a href="#[3e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessUserChain
 <LI><a href="#[3f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessUserCert
 <LI><a href="#[3f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessChainBuffer
@@ -7418,7 +7417,6 @@ Global Symbols
 <LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocateCtxSuites
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocKey
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AlertTypeToString
-<LI><a href="#[4c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TranslateIoReturnCode
 <LI><a href="#[45a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13ServerHello
 <LI><a href="#[28c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13Finished
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13ClientHello
@@ -7484,6 +7482,7 @@ Global Symbols
 <LI><a href="#[7fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_verify_hash_ex
 <LI><a href="#[7fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_shared_secret_ex
 <LI><a href="#[58e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_mulmod_ex2
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaUnPad_ex
 <LI><a href="#[426]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaPad_ex
 </UL>
@@ -7733,10 +7732,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[355]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[3d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[791]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
-<LI><a href="#[6d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
-<LI><a href="#[5c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ethernetif_notify_conn_changed
+<BR>[Called By]<UL><LI><a href="#[5c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ethernetif_notify_conn_changed
 <LI><a href="#[4c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_notification
+<LI><a href="#[791]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
+<LI><a href="#[6d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
 <LI><a href="#[580]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;download_ota_file
 <LI><a href="#[5f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;segregate_cert_url_json_payload
 <LI><a href="#[5f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;segregate_IP_config_json_payload
@@ -7975,7 +7974,6 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
 <LI><a href="#[592]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_mont_norm_points
 <LI><a href="#[597]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
@@ -7986,6 +7984,7 @@ Global Symbols
 <LI><a href="#[594]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_projective_dbl_point_safe
 <LI><a href="#[595]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_projective_add_point_safe
 <LI><a href="#[596]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_map
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
@@ -9712,12 +9711,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[405]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RsaFunctionPrivate
 </UL>
 
-<P><STRONG><a name="[613]"></a>mqtt_process</STRONG> (Thumb, 502 bytes, Stack size 280 bytes, mqtt_1.o(i.mqtt_process))
-<BR><BR>[Stack]<UL><LI>Max Depth = 820 + Unknown Stack Size
-<LI>Call Chain = mqtt_process &rArr; mqtt_publish_fire_fault &rArr; MqttClient_Publish &rArr; MqttPublishMsg &rArr; MqttClient_WaitType &rArr; MqttClient_HandlePacket &rArr; MqttClient_DecodePacket &rArr; MqttDecode_PublishResp &rArr; MqttDecode_Props &rArr; MqttDecode_Vbi
+<P><STRONG><a name="[613]"></a>mqtt_process</STRONG> (Thumb, 450 bytes, Stack size 280 bytes, mqtt_app.o(i.mqtt_process))
+<BR><BR>[Stack]<UL><LI>Max Depth = 772 + Unknown Stack Size
+<LI>Call Chain = mqtt_process &rArr; MqttClient_Connect &rArr; MqttClient_Auth &rArr; MqttClient_WaitType &rArr; MqttClient_HandlePacket &rArr; MqttClient_DecodePacket &rArr; MqttDecode_PublishResp &rArr; MqttDecode_Props &rArr; MqttDecode_Vbi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
-<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;debug_msg
+<BR>[Calls]<UL><LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;debug_msg
 <LI><a href="#[3c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MqttClient_WaitMessage
 <LI><a href="#[3c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MqttClient_Subscribe
 <LI><a href="#[3be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MqttClient_Publish
@@ -9727,24 +9725,21 @@ Global Symbols
 <LI><a href="#[3b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MqttClient_Init
 <LI><a href="#[675]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MqttClient_Disconnect
 <LI><a href="#[3a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MqttClient_Connect
-<LI><a href="#[616]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mqtt_publish_fire_fault
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[3d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ip_task
 </UL>
 
-<P><STRONG><a name="[616]"></a>mqtt_publish_fire_fault</STRONG> (Thumb, 58 bytes, Stack size 88 bytes, mqtt_1.o(i.mqtt_publish_fire_fault))
+<P><STRONG><a name="[616]"></a>mqtt_publish_fire_fault</STRONG> (Thumb, 58 bytes, Stack size 88 bytes, mqtt_app.o(i.mqtt_publish_fire_fault))
 <BR><BR>[Stack]<UL><LI>Max Depth = 540<LI>Call Chain = mqtt_publish_fire_fault &rArr; MqttClient_Publish &rArr; MqttPublishMsg &rArr; MqttClient_WaitType &rArr; MqttClient_HandlePacket &rArr; MqttClient_DecodePacket &rArr; MqttDecode_PublishResp &rArr; MqttDecode_Props &rArr; MqttDecode_Vbi
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;debug_msg
 <LI><a href="#[3be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MqttClient_Publish
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[613]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mqtt_process
-<LI><a href="#[614]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ip_task_process
+<BR>[Called By]<UL><LI><a href="#[614]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ip_task_process
 </UL>
 
 <P><STRONG><a name="[3db]"></a>mystrnstr</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, wc_port.o(i.mystrnstr))
@@ -10550,9 +10545,9 @@ Global Symbols
 <P><STRONG><a name="[160]"></a>pvPortMalloc</STRONG> (Thumb, 226 bytes, Stack size 24 bytes, heap_4.o(i.pvPortMalloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
-<LI><a href="#[6d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<BR>[Calls]<UL><LI><a href="#[6d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 <LI><a href="#[6d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
+<LI><a href="#[6d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
 <LI><a href="#[6cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[6cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
 </UL>
@@ -10572,8 +10567,6 @@ Global Symbols
 <LI><a href="#[5ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_http_POST_request
 <LI><a href="#[5ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_http_GET_request
 <LI><a href="#[817]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_new
-<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
-<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 <LI><a href="#[7f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_check_r_s_range
 <LI><a href="#[59f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_verify_hash
 <LI><a href="#[59e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_sign_hash_sw
@@ -10608,6 +10601,7 @@ Global Symbols
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeBasicCaConstraint
 <LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAuthKeyId
 <LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfirmSignature
+<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
 <LI><a href="#[3e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessUserChain
 <LI><a href="#[3ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessBufferTryDecodeEd25519
 <LI><a href="#[3ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessBufferTryDecodeEcc
@@ -10649,7 +10643,6 @@ Global Symbols
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocateSuites
 <LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocateCtxSuites
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AllocKey
-<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13ClientHello
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveTls13Keys
 <LI><a href="#[456]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13CertificateVerify
@@ -10677,7 +10670,6 @@ Global Symbols
 <LI><a href="#[80b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_CTX_new_ex
 <LI><a href="#[3e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessBuffer
 <LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CM_VerifyBuffer_ex
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
 <LI><a href="#[7b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaHash_ex
@@ -10707,6 +10699,7 @@ Global Symbols
 <LI><a href="#[36b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_DRBG_Reseed
 <LI><a href="#[365]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_DRBG_Generate
 <LI><a href="#[6ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;poly1305_blocks
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[4c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ToTraditionalInline_ex2
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAsymKey_Assign
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AltNameNew
@@ -10720,6 +10713,8 @@ Global Symbols
 <LI><a href="#[7fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_shared_secret_gen_sync
 <LI><a href="#[593]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_mul2add
 <LI><a href="#[58f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_map_ex
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
+<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 <LI><a href="#[474]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Transform_Sha512
 <LI><a href="#[477]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha512_Family_GetHash
 <LI><a href="#[46c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Transform_Sha256
@@ -11220,7 +11215,6 @@ Global Symbols
 
 <P><STRONG><a name="[27d]"></a>sp_count_bits</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, sp_int.o(i.sp_count_bits))
 <BR><BR>[Called By]<UL><LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoServerKeyExchange
-<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 <LI><a href="#[59f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_verify_hash
 <LI><a href="#[598]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_mulmod
 <LI><a href="#[75b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_exptmod_ex
@@ -11239,6 +11233,7 @@ Global Symbols
 <LI><a href="#[40f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_mont_norm
 <LI><a href="#[7fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_sign_hash_ex
 <LI><a href="#[58e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_mulmod_ex2
+<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 <LI><a href="#[417]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_RsaPublic_3072
 <LI><a href="#[415]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_RsaPublic_2048
 <LI><a href="#[416]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_RsaPrivate_3072
@@ -11447,8 +11442,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sp_init_size
 </UL>
-<BR>[Called By]<UL><LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
-<LI><a href="#[4e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_make_pub_ex
+<BR>[Called By]<UL><LI><a href="#[4e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_make_pub_ex
 <LI><a href="#[7a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_DhAgree_Sync
 <LI><a href="#[4ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffc_validate_public_key
 <LI><a href="#[2dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GeneratePublicDh
@@ -11457,6 +11451,7 @@ Global Symbols
 <LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_import_x963_ex
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitRsaKey_ex
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitDhKey_ex
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 </UL>
 
 <P><STRONG><a name="[404]"></a>sp_init_size</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, sp_int.o(i.sp_init_size))
@@ -13142,8 +13137,6 @@ Global Symbols
 <LI><a href="#[5f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;segregate_GSM_conf_json_payload
 <LI><a href="#[5ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_http_POST_request
 <LI><a href="#[5ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_http_GET_request
-<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
-<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 <LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
 <LI><a href="#[7f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_check_r_s_range
 <LI><a href="#[59f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_verify_hash
@@ -13178,6 +13171,7 @@ Global Symbols
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeBasicCaConstraint
 <LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DecodeAuthKeyId
 <LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfirmSignature
+<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
 <LI><a href="#[3e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessUserChain
 <LI><a href="#[3ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessBufferTryDecodeEd25519
 <LI><a href="#[3ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessBufferTryDecodeEcc
@@ -13233,7 +13227,6 @@ Global Symbols
 <LI><a href="#[2b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FreeArrays
 <LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoClientHello
 <LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CleanupStoreCtxCallback
-<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13ClientHello
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveTls13Keys
 <LI><a href="#[456]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13CertificateVerify
@@ -13260,7 +13253,6 @@ Global Symbols
 <LI><a href="#[80b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wolfSSL_CTX_new_ex
 <LI><a href="#[3e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ProcessBuffer
 <LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CM_VerifyBuffer_ex
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
 <LI><a href="#[7b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaHash_ex
@@ -13290,6 +13282,7 @@ Global Symbols
 <LI><a href="#[36b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_DRBG_Reseed
 <LI><a href="#[365]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_DRBG_Generate
 <LI><a href="#[6ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;poly1305_blocks
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[4c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ToTraditionalInline_ex2
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FreeSignatureCtx
 <LI><a href="#[2b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FreeNameSubtrees
@@ -13304,6 +13297,8 @@ Global Symbols
 <LI><a href="#[7fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_shared_secret_gen_sync
 <LI><a href="#[593]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_mul2add
 <LI><a href="#[58f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_map_ex
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
+<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 <LI><a href="#[474]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Transform_Sha512
 <LI><a href="#[477]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha512_Family_GetHash
 <LI><a href="#[46c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Transform_Sha256
@@ -13920,12 +13915,12 @@ Global Symbols
 <P><STRONG><a name="[1a2]"></a>wc_HmacFinal</STRONG> (Thumb, 538 bytes, Stack size 24 bytes, hmac.o(i.wc_HmacFinal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = wc_HmacFinal &rArr; HmacKeyInnerHash &rArr; wc_Sha3_512_Update &rArr; wc_Sha3Update &rArr; Sha3Update &rArr; BlockSha3
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
-<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
-<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
+<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
+<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
+<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
 <LI><a href="#[36f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HmacKeyInnerHash
 <LI><a href="#[370]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaUpdate
 <LI><a href="#[7be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaFinal
@@ -13941,9 +13936,9 @@ Global Symbols
 <LI><a href="#[7bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha224Final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildTls13HandshakeHmac
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 </UL>
 
 <P><STRONG><a name="[1a3]"></a>wc_HmacFree</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, hmac.o(i.wc_HmacFree))
@@ -13960,10 +13955,10 @@ Global Symbols
 <LI><a href="#[7c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha224Free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildTls13HandshakeHmac
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacSetKey_ex
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 </UL>
 
 <P><STRONG><a name="[19f]"></a>wc_HmacInit</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, hmac.o(i.wc_HmacInit))
@@ -13972,9 +13967,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildTls13HandshakeHmac
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 </UL>
 
 <P><STRONG><a name="[1a0]"></a>wc_HmacSetKey</STRONG> (Thumb, 12 bytes, Stack size 16 bytes, hmac.o(i.wc_HmacSetKey))
@@ -13983,21 +13978,21 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacSetKey_ex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildTls13HandshakeHmac
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 </UL>
 
 <P><STRONG><a name="[7ca]"></a>wc_HmacSetKey_ex</STRONG> (Thumb, 530 bytes, Stack size 32 bytes, hmac.o(i.wc_HmacSetKey_ex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 488<LI>Call Chain = wc_HmacSetKey_ex &rArr; wc_Sha3_512_Update &rArr; wc_Sha3Update &rArr; Sha3Update &rArr; BlockSha3
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
-<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
-<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
+<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
+<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
+<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
 <LI><a href="#[4cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_InitHmac
 <LI><a href="#[370]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaUpdate
 <LI><a href="#[7be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ShaFinal
@@ -14037,9 +14032,9 @@ Global Symbols
 <LI><a href="#[371]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha224Update
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildTls13HandshakeHmac
-<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 <LI><a href="#[7b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Extract_ex
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
+<LI><a href="#[7d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_PRF
 </UL>
 
 <P><STRONG><a name="[186]"></a>wc_InitDhKey_ex</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, dh.o(i.wc_InitDhKey_ex))
@@ -14423,8 +14418,8 @@ Global Symbols
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConfirmSignature
-<LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaPSS_CheckPadding_ex
 <LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaPSS_CheckPadding
+<LI><a href="#[280]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaPSS_CheckPadding_ex
 </UL>
 
 <P><STRONG><a name="[42a]"></a>wc_RsaPSS_Sign</STRONG> (Thumb, 32 bytes, Stack size 40 bytes, rsa.o(i.wc_RsaPSS_Sign))
@@ -14657,8 +14652,8 @@ Global Symbols
 <LI><a href="#[46b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ByteReverseWords
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256GetHash
-<LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<BR>[Called By]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256GetHash
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveKeyMsg
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
@@ -14672,9 +14667,9 @@ Global Symbols
 <P><STRONG><a name="[1e8]"></a>wc_Sha256Free</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sha256.o(i.wc_Sha256Free))
 <BR><BR>[Calls]<UL><LI><a href="#[4c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 </UL>
-<BR>[Called By]<UL><LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256GetHash
+<BR>[Called By]<UL><LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
+<LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256GetHash
 <LI><a href="#[2b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FreeHandshakeHashes
-<LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveKeyMsg
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
@@ -14689,9 +14684,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[7e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Copy
-<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildCertHashes
 <LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tls13DeriveKey
@@ -14715,11 +14710,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256_ex
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_MSG
-<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Hash_ex
 <LI><a href="#[35a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Hash
@@ -14730,9 +14725,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[46d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha256Update
 </UL>
-<BR>[Called By]<UL><LI><a href="#[361]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HashRaw
-<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacUpdate
+<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacUpdate
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<LI><a href="#[361]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HashRaw
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveKeyMsg
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
@@ -14759,8 +14754,8 @@ Global Symbols
 <LI><a href="#[7cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitSha384
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
-<LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<BR>[Called By]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveKeyMsg
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
@@ -14771,9 +14766,9 @@ Global Symbols
 <P><STRONG><a name="[1ec]"></a>wc_Sha384Free</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sha512.o(i.wc_Sha384Free))
 <BR><BR>[Calls]<UL><LI><a href="#[4d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 </UL>
-<BR>[Called By]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
+<BR>[Called By]<UL><LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
+<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
 <LI><a href="#[2b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FreeHandshakeHashes
-<LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveKeyMsg
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
@@ -14785,9 +14780,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 <LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Free
 <LI><a href="#[7e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Copy
-<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildCertHashes
 <LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tls13DeriveKey
@@ -14798,7 +14793,7 @@ Global Symbols
 
 <P><STRONG><a name="[35b]"></a>wc_Sha384Hash</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, hash.o(i.wc_Sha384Hash))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304 + Unknown Stack Size
-<LI>Call Chain = wc_Sha384Hash &rArr; wc_Sha384Hash_ex &rArr; wc_Sha384Update &rArr; Sha512Update &rArr; _Transform_Sha512 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<LI>Call Chain = wc_Sha384Hash &rArr; wc_Sha384Hash_ex &rArr; wc_Sha384Final &rArr; Sha512Final &rArr; _Transform_Sha512 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Hash_ex
 </UL>
@@ -14807,15 +14802,15 @@ Global Symbols
 
 <P><STRONG><a name="[7b6]"></a>wc_Sha384Hash_ex</STRONG> (Thumb, 106 bytes, Stack size 32 bytes, hash.o(i.wc_Sha384Hash_ex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
-<LI>Call Chain = wc_Sha384Hash_ex &rArr; wc_Sha384Update &rArr; Sha512Update &rArr; _Transform_Sha512 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<LI>Call Chain = wc_Sha384Hash_ex &rArr; wc_Sha384Final &rArr; Sha512Final &rArr; _Transform_Sha512 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
 <LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Free
 <LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha384_ex
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_MSG
-<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Hash_ex
 <LI><a href="#[35b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Hash
@@ -14826,9 +14821,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[475]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha512Update
 </UL>
-<BR>[Called By]<UL><LI><a href="#[361]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HashRaw
-<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacUpdate
+<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacUpdate
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<LI><a href="#[361]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HashRaw
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveKeyMsg
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
@@ -15070,8 +15065,8 @@ Global Symbols
 <P><STRONG><a name="[1ef]"></a>wc_Sha512Free</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sha512.o(i.wc_Sha512Free))
 <BR><BR>[Calls]<UL><LI><a href="#[4d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FreeHandshakeHashes
-<LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
+<BR>[Called By]<UL><LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
+<LI><a href="#[2b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FreeHandshakeHashes
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
 <LI><a href="#[7e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512_256Free
@@ -15106,11 +15101,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
 <LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
 <LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Free
 <LI><a href="#[37a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512_ex
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_MSG
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Hash_ex
 <LI><a href="#[35c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Hash
@@ -15121,9 +15116,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[475]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sha512Update
 </UL>
-<BR>[Called By]<UL><LI><a href="#[361]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HashRaw
-<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacUpdate
+<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacUpdate
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<LI><a href="#[361]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HashRaw
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateECCEncodedSig
 <LI><a href="#[7ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacSetKey_ex
@@ -15272,8 +15267,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[7d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 <LI><a href="#[7af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HKDF_Expand_ex
+<LI><a href="#[7d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tls13DeriveKey
@@ -15566,8 +15561,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 1024 + Unknown Stack Size
 <LI>Call Chain = wc_ecc_mulmod_ex2 &rArr; ecc_mulmod &rArr; wc_ecc_gen_z &rArr; wc_ecc_gen_k &rArr; wc_RNG_GenerateBlock &rArr; wc_RNG_HealthTestLocal &rArr; wc_RNG_HealthTest_ex &rArr; Hash_DRBG_Generate &rArr; Hash_gen &rArr; wc_Sha256Update &rArr; Sha256Update &rArr; Transform_Sha256 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
-<LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
+<BR>[Calls]<UL><LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
 <LI><a href="#[59c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_point_to_mont
 <LI><a href="#[598]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_mulmod
 <LI><a href="#[589]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_check_order_minus_1
@@ -15575,6 +15569,7 @@ Global Symbols
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_MSG
 <LI><a href="#[40e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_mont_setup
 <LI><a href="#[596]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_map
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_make_pub_ex
 <LI><a href="#[7fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_shared_secret_gen_sync
@@ -15613,7 +15608,6 @@ Global Symbols
 <P><STRONG><a name="[7fb]"></a>wc_ecc_shared_secret_gen_sync</STRONG> (Thumb, 322 bytes, Stack size 144 bytes, ecc.o(i.wc_ecc_shared_secret_gen_sync), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
 <LI><a href="#[4e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_load
 <LI><a href="#[4e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_free
@@ -15624,6 +15618,7 @@ Global Symbols
 <LI><a href="#[756]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_ecc_secret_gen_256
 <LI><a href="#[58e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_mulmod_ex2
 <LI><a href="#[58f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_map_ex
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
@@ -15726,8 +15721,8 @@ Global Symbols
 <LI><a href="#[7ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_make_public
 <LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_only
-<LI><a href="#[802]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_public_ex
+<BR>[Called By]<UL><LI><a href="#[802]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_public_ex
+<LI><a href="#[7ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_only
 </UL>
 
 <P><STRONG><a name="[2c2]"></a>wc_ed25519_free</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, ed25519.o(i.wc_ed25519_free))
@@ -15777,8 +15772,8 @@ Global Symbols
 <P><STRONG><a name="[802]"></a>wc_ed25519_import_public_ex</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, ed25519.o(i.wc_ed25519_import_public_ex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 988<LI>Call Chain = wc_ed25519_import_public_ex &rArr; wc_ed25519_check_key &rArr; wc_ed25519_make_public &rArr; ge_scalarmult_base &rArr; ed25519_smult &rArr; ed25519_add &rArr; fe_mul__distinct
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_check_key
-<LI><a href="#[5e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ge_compress_key
+<BR>[Calls]<UL><LI><a href="#[5e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ge_compress_key
+<LI><a href="#[7fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_check_key
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[801]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_key_ex
@@ -16673,7 +16668,6 @@ Global Symbols
 <LI><a href="#[4c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_notification
 <LI><a href="#[822]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerPendFunctionCallFromISR
 <LI><a href="#[6ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
-<LI><a href="#[613]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mqtt_process
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DHCP_thread
 <LI><a href="#[66c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;upg_from_eth
 <LI><a href="#[632]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lte_send_queue_isr
@@ -18961,16 +18955,16 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[530]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_init
 </UL>
 
-<P><STRONG><a name="[8f]"></a>message_callback</STRONG> (Thumb, 84 bytes, Stack size 264 bytes, mqtt_1.o(i.message_callback))
+<P><STRONG><a name="[8f]"></a>message_callback</STRONG> (Thumb, 84 bytes, Stack size 264 bytes, mqtt_app.o(i.message_callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = message_callback &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;debug_msg
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> mqtt_1.o(i.mqtt_process)
+<BR>[Address Reference Count : 1]<UL><LI> mqtt_app.o(i.mqtt_process)
 </UL>
-<P><STRONG><a name="[8b]"></a>mqtt_lwip_connect</STRONG> (Thumb, 282 bytes, Stack size 216 bytes, mqtt_1.o(i.mqtt_lwip_connect))
+<P><STRONG><a name="[8b]"></a>mqtt_lwip_connect</STRONG> (Thumb, 282 bytes, Stack size 216 bytes, mqtt_app.o(i.mqtt_lwip_connect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 472 + Unknown Stack Size
 <LI>Call Chain = mqtt_lwip_connect &rArr; lwip_gethostbyname &rArr; netconn_gethostbyname &rArr; tcpip_callback_with_block &rArr; memp_malloc &rArr; do_memp_malloc_pool &rArr; sys_arch_protect &rArr; osMutexAcquire &rArr; xQueueTakeMutexRecursive &rArr; xQueueSemaphoreTake &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
@@ -18985,17 +18979,17 @@ Local Symbols
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> mqtt_1.o(i.mqtt_process)
+<BR>[Address Reference Count : 1]<UL><LI> mqtt_app.o(i.mqtt_process)
 </UL>
-<P><STRONG><a name="[8e]"></a>mqtt_lwip_disconnect</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, mqtt_1.o(i.mqtt_lwip_disconnect))
+<P><STRONG><a name="[8e]"></a>mqtt_lwip_disconnect</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, mqtt_app.o(i.mqtt_lwip_disconnect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
 <LI>Call Chain = mqtt_lwip_disconnect &rArr; lwip_close &rArr; free_socket &rArr; netbuf_delete &rArr; pbuf_free &rArr; mem_free &rArr; plug_holes &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[588]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lwip_close
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> mqtt_1.o(i.mqtt_process)
+<BR>[Address Reference Count : 1]<UL><LI> mqtt_app.o(i.mqtt_process)
 </UL>
-<P><STRONG><a name="[8c]"></a>mqtt_lwip_read</STRONG> (Thumb, 150 bytes, Stack size 40 bytes, mqtt_1.o(i.mqtt_lwip_read))
+<P><STRONG><a name="[8c]"></a>mqtt_lwip_read</STRONG> (Thumb, 150 bytes, Stack size 40 bytes, mqtt_app.o(i.mqtt_lwip_read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
 <LI>Call Chain = mqtt_lwip_read &rArr; lwip_recv &rArr; lwip_recvfrom &rArr; netconn_recv &rArr; netconn_recv_data &rArr; netconn_close_shutdown &rArr; netconn_apimsg &rArr; tcpip_send_msg_wait_sem &rArr; sys_mutex_lock &rArr; osMutexAcquire &rArr; xQueueTakeMutexRecursive &rArr; xQueueSemaphoreTake &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
@@ -19003,9 +18997,9 @@ Local Symbols
 <LI><a href="#[65c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lwip_select
 <LI><a href="#[5d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lwip_recv
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> mqtt_1.o(i.mqtt_process)
+<BR>[Address Reference Count : 1]<UL><LI> mqtt_app.o(i.mqtt_process)
 </UL>
-<P><STRONG><a name="[8d]"></a>mqtt_lwip_write</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, mqtt_1.o(i.mqtt_lwip_write))
+<P><STRONG><a name="[8d]"></a>mqtt_lwip_write</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, mqtt_app.o(i.mqtt_lwip_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
 <LI>Call Chain = mqtt_lwip_write &rArr; lwip_select &rArr; lwip_selscan &rArr; sys_arch_protect &rArr; osMutexAcquire &rArr; xQueueTakeMutexRecursive &rArr; xQueueSemaphoreTake &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
@@ -19013,14 +19007,14 @@ Local Symbols
 <LI><a href="#[661]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lwip_send
 <LI><a href="#[65c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lwip_select
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> mqtt_1.o(i.mqtt_process)
+<BR>[Address Reference Count : 1]<UL><LI> mqtt_app.o(i.mqtt_process)
 </UL>
-<P><STRONG><a name="[90]"></a>mqtt_tls_cb</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, mqtt_1.o(i.mqtt_tls_cb))
+<P><STRONG><a name="[90]"></a>mqtt_tls_cb</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, mqtt_app.o(i.mqtt_tls_cb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = mqtt_tls_cb &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;debug_msg
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> mqtt_1.o(i.mqtt_process)
+<BR>[Address Reference Count : 1]<UL><LI> mqtt_app.o(i.mqtt_process)
 </UL>
 <P><STRONG><a name="[357]"></a>Handle_Props</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, mqtt_client_1.o(i.Handle_Props))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Handle_Props
@@ -20549,13 +20543,13 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
-<LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256GetHash
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacUpdate
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacSetKey
 <LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacInit
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFree
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_HmacFinal
+<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384GetHash
+<LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256GetHash
 </UL>
 <BR>[Called By]<UL><LI><a href="#[28c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13Finished
 <LI><a href="#[459]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13Finished
@@ -20599,18 +20593,18 @@ Local Symbols
 <P><STRONG><a name="[1e4]"></a>CreateECCEncodedSig</STRONG> (Thumb, 166 bytes, Stack size 240 bytes, tls13.o(i.CreateECCEncodedSig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 512<LI>Call Chain = CreateECCEncodedSig &rArr; wc_Sha512Final &rArr; Sha512_Family_Final &rArr; Sha512Final &rArr; _Transform_Sha512 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
-<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Free
-<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
-<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Free
-<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
-<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Final
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha384
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256
+<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Update
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha512Free
+<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Free
+<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
+<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 </UL>
 <BR>[Called By]<UL><LI><a href="#[456]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendTls13CertificateVerify
 <LI><a href="#[284]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoTls13CertificateVerify
@@ -20630,15 +20624,15 @@ Local Symbols
 <P><STRONG><a name="[232]"></a>DeriveKeyMsg</STRONG> (Thumb, 222 bytes, Stack size 368 bytes, tls13.o(i.DeriveKeyMsg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1064<LI>Call Chain = DeriveKeyMsg &rArr; wc_Tls13_HKDF_Expand_Label_ex &rArr; wc_HKDF_Expand_ex &rArr; wc_HmacSetKey &rArr; wc_HmacSetKey_ex &rArr; wc_Sha3_512_Update &rArr; wc_Sha3Update &rArr; Sha3Update &rArr; BlockSha3
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
+<BR>[Calls]<UL><LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
+<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
+<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
+<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Update
 <LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Free
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha384_ex
 <LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256_ex
-<LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Tls13_HKDF_Expand_Label_ex
-<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
-<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveMasterSecret
 <LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DeriveHandshakeSecret
@@ -20674,6 +20668,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaPSS_CheckPadding
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_MSG
 <LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_LEAVE
 <LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_ENTER
@@ -20685,7 +20680,6 @@ Local Symbols
 <LI><a href="#[27f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ed25519Verify
 <LI><a href="#[27e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EccVerify
 <LI><a href="#[285]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConvertHashPss
-<LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_RsaPSS_CheckPadding
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateSigData
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CreateRSAEncodedSig
 <LI><a href="#[283]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ato16
@@ -20737,10 +20731,10 @@ Local Symbols
 <LI>Call Chain = EncryptTls13 &rArr; wc_AesGcmEncrypt_ex &rArr; wc_AesGcmEncrypt &rArr; AES_GCM_encrypt_C &rArr; GHASH &rArr; GMULT &rArr; xorbuf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetExtIV
 <LI><a href="#[2ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmEncrypt_ex
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_MSG
 <LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WOLFSSL_ENTER
-<LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetExtIV
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChaCha20Poly1305_Encrypt
 <LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BuildTls13Nonce
@@ -21005,8 +20999,8 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[7a2]"></a>CheckAesGcmIvSize</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, aes.o(i.CheckAesGcmIvSize))
-<BR><BR>[Called By]<UL><LI><a href="#[465]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetIV
-<LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetExtIV
+<BR><BR>[Called By]<UL><LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetExtIV
+<LI><a href="#[465]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_AesGcmSetIV
 </UL>
 
 <P><STRONG><a name="[2cd]"></a>FlattenSzInBits</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, aes.o(i.FlattenSzInBits))
@@ -21874,8 +21868,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 1088 + Unknown Stack Size
 <LI>Call Chain = ecc_make_pub_ex &rArr; wc_ecc_mulmod_ex2 &rArr; ecc_mulmod &rArr; wc_ecc_gen_z &rArr; wc_ecc_gen_k &rArr; wc_RNG_GenerateBlock &rArr; wc_RNG_HealthTestLocal &rArr; wc_RNG_HealthTest_ex &rArr; Hash_DRBG_Generate &rArr; Hash_gen &rArr; wc_Sha256Update &rArr; Sha256Update &rArr; Transform_Sha256 &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; debug_msg &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
-<LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
+<BR>[Calls]<UL><LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
 <LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_init_multi
 <LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_copy
 <LI><a href="#[2d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_cmp
@@ -21885,6 +21878,7 @@ Local Symbols
 <LI><a href="#[58d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_ecc_mulmod_base_256
 <LI><a href="#[58e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_mulmod_ex2
 <LI><a href="#[58f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_map_ex
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ecc_make_key_ex
 <LI><a href="#[7fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_verify_hash_ex
@@ -21967,7 +21961,6 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_del_point_ex
 <LI><a href="#[2d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_mod
 <LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_copy
@@ -21981,6 +21974,7 @@ Local Symbols
 <LI><a href="#[408]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_invmod
 <LI><a href="#[404]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sp_init_size
 <LI><a href="#[593]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ecc_mul2add
+<LI><a href="#[58c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_new_point_ex
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_verify_hash_ex
@@ -22032,13 +22026,13 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_cache_free_spec
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
-<LI><a href="#[4e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_load
+<BR>[Called By]<UL><LI><a href="#[4e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_load
 <LI><a href="#[7f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_check_r_s_range
 <LI><a href="#[4e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ecc_make_key_ex
 <LI><a href="#[7fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_verify_hash_ex
 <LI><a href="#[7fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_sign_hash_ex
 <LI><a href="#[7fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_shared_secret_gen_sync
+<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 </UL>
 
 <P><STRONG><a name="[4e5]"></a>wc_ecc_curve_load</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, ecc.o(i.wc_ecc_curve_load))
@@ -22048,12 +22042,12 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[4e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_free
 <LI><a href="#[7f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_curve_cache_load_item
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
-<LI><a href="#[7f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_check_r_s_range
+<BR>[Called By]<UL><LI><a href="#[7f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_check_r_s_range
 <LI><a href="#[4e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ecc_make_key_ex
 <LI><a href="#[7fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_verify_hash_ex
 <LI><a href="#[7fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_sign_hash_ex
 <LI><a href="#[7fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_shared_secret_gen_sync
+<LI><a href="#[7f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ecc_get_curve_order_bit_count
 </UL>
 
 <P><STRONG><a name="[590]"></a>wc_ecc_del_point_ex</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, ecc.o(i.wc_ecc_del_point_ex))
@@ -22116,8 +22110,8 @@ Local Symbols
 
 <P><STRONG><a name="[800]"></a>ForceZero</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ed25519.o(i.ForceZero))
 <BR><BR>[Called By]<UL><LI><a href="#[2c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_free
-<LI><a href="#[7ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_only
 <LI><a href="#[801]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_key_ex
+<LI><a href="#[7ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_ed25519_import_private_only
 </UL>
 
 <P><STRONG><a name="[5a5]"></a>ed25519_hash</STRONG> (Thumb, 78 bytes, Stack size 248 bytes, ed25519.o(i.ed25519_hash))
@@ -22349,10 +22343,10 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
-<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256
+<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
+<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[367]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;array_add
 <LI><a href="#[366]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hash_gen
 <LI><a href="#[368]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
@@ -22399,10 +22393,10 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
-<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256
+<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
+<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[368]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
@@ -22415,10 +22409,10 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
-<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256
+<LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Update
+<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Free
 <LI><a href="#[368]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceZero
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
@@ -22792,8 +22786,8 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256_ex
-<LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
+<BR>[Called By]<UL><LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha256Final
+<LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha256_ex
 </UL>
 
 <P><STRONG><a name="[46a]"></a>Sha256Final</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, sha256.o(i.Sha256Final))
@@ -22917,8 +22911,8 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[7cf]"></a>InitSha384</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, sha512.o(i.InitSha384))
-<BR><BR>[Called By]<UL><LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha384_ex
-<LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
+<BR><BR>[Called By]<UL><LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_Sha384Final
+<LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha384_ex
 </UL>
 
 <P><STRONG><a name="[a8]"></a>InitSha512</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, sha512.o(i.InitSha512))
@@ -22935,8 +22929,8 @@ Local Symbols
 <LI> sha512.o(i.wc_Sha512_256Final)
 </UL>
 <P><STRONG><a name="[7d0]"></a>InitSha512_Family</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sha512.o(i.InitSha512_Family))
-<BR><BR>[Called By]<UL><LI><a href="#[37a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512_ex
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512
+<BR><BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512
+<LI><a href="#[37a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512_ex
 <LI><a href="#[7d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512_256_ex
 <LI><a href="#[7d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wc_InitSha512_224_ex
 </UL>

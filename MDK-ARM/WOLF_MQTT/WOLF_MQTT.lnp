@@ -121,7 +121,7 @@
 "wolf_mqtt\network_time.o"
 "wolf_mqtt\scorpio_app.o"
 "wolf_mqtt\task.o"
-"wolf_mqtt\mqtt_1.o"
+"wolf_mqtt\mqtt_app.o"
 "wolf_mqtt\bsp_lte.o"
 "wolf_mqtt\bsp_relay.o"
 "wolf_mqtt\common.o"

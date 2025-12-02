@@ -1035,9 +1035,9 @@
               <FilePath>..\scorpio_app\task.c</FilePath>
             </File>
             <File>
-              <FileName>mqtt.c</FileName>
+              <FileName>mqtt_app.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\scorpio_app\mqtt.c</FilePath>
+              <FilePath>..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c</FilePath>
             </File>
           </Files>
         </Group>

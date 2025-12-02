@@ -6,8 +6,8 @@
  * @copyright Copyright (c) 2025
  */
 /************************************************ Define to prevent recursive inclusion ********************************************/
-#ifndef MQTT_H
-#define MQTT_H
+#ifndef MQTT_APP_H
+#define MQTT_APP_H
 /******************************************************** Header includes **********************************************************/
 #include "scorpio_app.h"
 /*********************************************************** Macros ****************************************************************/
@@ -21,4 +21,4 @@
 void mqtt_process(void);
 int mqtt_publish_fire_fault(uint8_t *payload, uint16_t payload_len);
 
-#endif/* MQTT_H */
+#endif /* MQTT_APP_H */

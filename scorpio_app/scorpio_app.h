@@ -63,6 +63,7 @@
 #include "https_client_app.h"
 #include "http_server_app.h"
 #include "mqtt.h"
+#include "mqtt_app.h"
 
 
 /*********************************************************** Macros ****************************************************************/
