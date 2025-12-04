@@ -11,6 +11,8 @@
 /******************************************************** Header includes **********************************************************/
 #include "scorpio_app.h"
 /***********************************************************  Macros ***************************************************************/
+#define EVENT_IP_DYNAMIC   (1 << 0)
+
 /*********************************************************** typedef ***************************************************************/
 typedef struct lte
 {
@@ -30,6 +32,7 @@ typedef enum relay_state
 extern EventGroupHandle_t event_lte_rx;
 extern EventGroupHandle_t event_mcu_comm_rx;
 extern EventGroupHandle_t event_eth_rx;
+extern EventGroupHandle_t event_ip_stat;
 
 extern QueueHandle_t queue_lte;
 extern QueueHandle_t queue_eth;

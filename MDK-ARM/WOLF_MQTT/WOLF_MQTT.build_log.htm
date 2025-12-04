@@ -28,58 +28,14 @@ Project File Date:  12/02/2025
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\keil\ARM\ARMCC\Bin'
 Build target 'WOLF_MQTT'
 Note: source file '../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/src/mqtt_client.c' - object file renamed from 'WOLF_MQTT\mqtt_client.o' to 'WOLF_MQTT\mqtt_client_1.o'.
-compiling mqtt_app.c...
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.h(23): warning:  #1-D: last line of file ends without a newline
-  #endif/* MQTT_H */
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(76): warning:  #47-D: incompatible redefinition of macro "MQTT_PORT"  (declared at line 52 of "../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h")
-  #define MQTT_PORT (1883U)
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(163): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(173): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(187): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(211): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(220): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(232): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-      snprintf(au8_dbg_buff, sizeof(au8_dbg_buff),
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(397): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          sprintf(u8_print_buff, "Received PUBLISH topic: %s\n", publish->topic_name);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(400): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          sprintf(u8_print_buff, "Payload: %.*s\n", publish->total_len, publish->buffer);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(415): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-          sprintf(u8_print_buff, "Unhandled message type: %d\n", message->type);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(458): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              sprintf(u8_print_buff, "\r\nMqttClient_Init error: %d\n", i32_rc);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(468): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-                  sprintf(u8_print_buff, "\r\nMqttClient_Netconnect error: %d\n", i32_rc);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(486): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              sprintf(u8_print_buff, "\r\nMQTT connect error: %d\n", i32_rc);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(503): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              sprintf(u8_print_buff, "Subscribe failed: %d\n", i32_rc);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(523): warning:  #188-D: enumerated type mixed with another type
-          publish.qos = 0;
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(565): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-              sprintf(u8_print_buff, "WaitMessage error: %d\n", i32_rc);
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(432): warning:  #177-D: variable "au8_status_buf"  was declared but never referenced
-      uint8_t au8_status_buf[] = "{\n  \"serialNumber\": \"5000\",\n  \"status\": \"active\"\n}";
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(433): warning:  #177-D: variable "ip_address"  was declared but never referenced
-      ip_addr_t ip_address;
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(435): warning:  #177-D: variable "temp_cnt"  was declared but never referenced
-      static uint16_t temp_cnt = 0;
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(749): warning:  #188-D: enumerated type mixed with another type
-      MqttPublish publish = {0};
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(750): warning:  #188-D: enumerated type mixed with another type
-      publish.qos = 2;
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c(747): warning:  #177-D: variable "u8_print_buff"  was declared but never referenced
-      uint8_t u8_print_buff[100];
-..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c: 23 warnings, 0 errors
+compiling html_page.c...
+..\scorpio_app\mqtt_app.h(24): warning:  #1-D: last line of file ends without a newline
+  #endif /* MQTT_APP_H */
+..\scorpio_app\html_page.c: 1 warning, 0 errors
 linking...
-Program Size: Code=350108 RO-data=170960 RW-data=1256 ZI-data=119308  
+Program Size: Code=349996 RO-data=170900 RW-data=1260 ZI-data=119340  
 FromELF: creating hex file...
-"WOLF_MQTT\WOLF_MQTT.axf" - 0 Error(s), 23 Warning(s).
+"WOLF_MQTT\WOLF_MQTT.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -119,11 +75,11 @@ Package Vendor: Keil
       Source file:   Source/retarget_io.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
-      Source file:   Template/stdout_USART.c
+      Source file:   Source/retarget_io.c
       Source file:   Template/stdout_display.c
       Source file:   Template/stdout_user.c
-      Source file:   Source/retarget_io.c
-Build Time Elapsed:  00:00:21
+      Source file:   Template/stdout_USART.c
+Build Time Elapsed:  00:00:25
 </pre>
 </body>
 </html>

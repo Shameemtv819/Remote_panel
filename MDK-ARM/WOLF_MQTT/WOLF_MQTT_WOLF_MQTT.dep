@@ -158,7 +158,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (../scorpio_app/ca_cert.h)(0x688B03D9)
 I (../scorpio_app/html_page.h)(0x688B03D9)
-I (../scorpio_app/task.h)(0x6923F8C4)
+I (../scorpio_app/task.h)(0x69313D76)
 I (../scorpio_app/flash.h)(0x688B03D9)
 I (../scorpio_app/memory_map.h)(0x688B03D9)
 I (../scorpio_app/lte_app.h)(0x688B03D9)
@@ -327,7 +327,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (../scorpio_app/ca_cert.h)(0x688B03D9)
 I (../scorpio_app/html_page.h)(0x688B03D9)
-I (../scorpio_app/task.h)(0x6923F8C4)
+I (../scorpio_app/task.h)(0x69313D76)
 I (../scorpio_app/flash.h)(0x688B03D9)
 I (../scorpio_app/memory_map.h)(0x688B03D9)
 I (../scorpio_app/lte_app.h)(0x688B03D9)
@@ -548,7 +548,7 @@ I (../Middlewares/Third_Party/LwIP/src/include/lwip/prot/etharp.h)(0x675FF509)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/ethip6.h)(0x675FF509)
 I (../LWIP/Target/ethernetif.h)(0x68CBA436)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/tcpip.h)(0x675FF509)
-F (../LWIP/App/lwip.c)(0x692982A6)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\lwip.o --omf_browse wolf_mqtt\lwip.crf --depend wolf_mqtt\lwip.d)
+F (../LWIP/App/lwip.c)(0x69313EAA)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\lwip.o --omf_browse wolf_mqtt\lwip.crf --depend wolf_mqtt\lwip.d)
 I (../LWIP/App/lwip.h)(0x69206618)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h)(0x675FF509)
 I (../LWIP/Target/lwipopts.h)(0x692846A2)
@@ -705,7 +705,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (../scorpio_app/ca_cert.h)(0x688B03D9)
 I (../scorpio_app/html_page.h)(0x688B03D9)
-I (../scorpio_app/task.h)(0x6923F8C4)
+I (../scorpio_app/task.h)(0x69313D76)
 I (../scorpio_app/flash.h)(0x688B03D9)
 I (../scorpio_app/memory_map.h)(0x688B03D9)
 I (../scorpio_app/lte_app.h)(0x688B03D9)
@@ -6405,7 +6405,7 @@ I (../scorpio_bsp/debug_uart.h)(0x688B03D9)
 I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -6576,7 +6576,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
 I (..\scorpio_app\network_time.h)(0x688B03D9)
@@ -6587,7 +6587,7 @@ I (..\scorpio_app\http_server_app.h)(0x688B03D9)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h)(0x675FF509)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h)(0x675FF509)
 I (..\scorpio_app\mqtt_app.h)(0x692E77BB)
-F (..\scorpio_app\html_page.c)(0x692842F7)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\html_page.o --omf_browse wolf_mqtt\html_page.crf --depend wolf_mqtt\html_page.d)
+F (..\scorpio_app\html_page.c)(0x69315FB1)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\html_page.o --omf_browse wolf_mqtt\html_page.crf --depend wolf_mqtt\html_page.d)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
 I (..\scorpio_app\scorpio_app.h)(0x692E79BB)
 I (../Core/Inc/main.h)(0x692982A6)
@@ -6745,7 +6745,7 @@ I (../scorpio_bsp/debug_uart.h)(0x688B03D9)
 I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -6757,7 +6757,7 @@ I (..\scorpio_app\http_server_app.h)(0x688B03D9)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h)(0x675FF509)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h)(0x675FF509)
 I (..\scorpio_app\mqtt_app.h)(0x692E77BB)
-F (..\scorpio_app\http_server_app.c)(0x69284F0C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\http_server_app.o --omf_browse wolf_mqtt\http_server_app.crf --depend wolf_mqtt\http_server_app.d)
+F (..\scorpio_app\http_server_app.c)(0x69302012)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\http_server_app.o --omf_browse wolf_mqtt\http_server_app.crf --depend wolf_mqtt\http_server_app.d)
 I (..\scorpio_app\http_server_app.h)(0x688B03D9)
 I (..\scorpio_app\scorpio_app.h)(0x692E79BB)
 I (../Core/Inc/main.h)(0x692982A6)
@@ -6916,7 +6916,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -6927,7 +6927,7 @@ I (..\scorpio_app\https_client_app.h)(0x691EB248)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h)(0x675FF509)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h)(0x675FF509)
 I (..\scorpio_app\mqtt_app.h)(0x692E77BB)
-F (..\scorpio_app\https_client_app.c)(0x69299011)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\https_client_app.o --omf_browse wolf_mqtt\https_client_app.crf --depend wolf_mqtt\https_client_app.d)
+F (..\scorpio_app\https_client_app.c)(0x692EC294)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\https_client_app.o --omf_browse wolf_mqtt\https_client_app.crf --depend wolf_mqtt\https_client_app.d)
 I (..\scorpio_app\https_client_app.h)(0x691EB248)
 I (..\scorpio_app\scorpio_app.h)(0x692E79BB)
 I (../Core/Inc/main.h)(0x692982A6)
@@ -7086,7 +7086,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -7256,7 +7256,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -7426,7 +7426,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\network_time.h)(0x688B03D9)
@@ -7596,7 +7596,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -7766,7 +7766,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -7935,7 +7935,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\scorpio_app\html_page.h)(0x688B03D9)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\flash.h)(0x688B03D9)
 I (..\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\scorpio_app\lte_app.h)(0x688B03D9)
@@ -7947,8 +7947,8 @@ I (..\scorpio_app\http_server_app.h)(0x688B03D9)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h)(0x675FF509)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h)(0x675FF509)
 I (..\scorpio_app\mqtt_app.h)(0x692E77BB)
-F (..\scorpio_app\task.c)(0x69299761)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\task.o --omf_browse wolf_mqtt\task.crf --depend wolf_mqtt\task.d)
-I (..\scorpio_app\task.h)(0x6923F8C4)
+F (..\scorpio_app\task.c)(0x69313D76)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\task.o --omf_browse wolf_mqtt\task.crf --depend wolf_mqtt\task.d)
+I (..\scorpio_app\task.h)(0x69313D76)
 I (..\scorpio_app\scorpio_app.h)(0x692E79BB)
 I (../Core/Inc/main.h)(0x692982A6)
 I (../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal.h)(0x675FF514)
@@ -8117,8 +8117,8 @@ I (..\scorpio_app\http_server_app.h)(0x688B03D9)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h)(0x675FF509)
 I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h)(0x675FF509)
 I (..\scorpio_app\mqtt_app.h)(0x692E77BB)
-F (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c)(0x692E8984)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\mqtt_app.o --omf_browse wolf_mqtt\mqtt_app.crf --depend wolf_mqtt\mqtt_app.d)
-I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.h)(0x692E89BF)
+F (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.c)(0x6931368B)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\mqtt_app.o --omf_browse wolf_mqtt\mqtt_app.crf --depend wolf_mqtt\mqtt_app.d)
+I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt_app.h)(0x692E92E5)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\scorpio_app.h)(0x691EB1BD)
 I (../Core/Inc/main.h)(0x692982A6)
 I (../Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal.h)(0x675FF514)
@@ -8276,7 +8276,7 @@ I (../scorpio_bsp/mcu_comm_uart.h)(0x688B03D9)
 I (../scorpio_bsp/crc.h)(0x688B03D9)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\ca_cert.h)(0x688B03D9)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\html_page.h)(0x688B03D9)
-I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\task.h)(0x688B03D9)
+I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\task.h)(0x692E8B95)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\flash.h)(0x688B03D9)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\memory_map.h)(0x688B03D9)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\lte_app.h)(0x688B03D9)
@@ -8285,8 +8285,7 @@ I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mcu_comm_app.h)(0x688B03D
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\json_handler.h)(0x688B03D9)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\https_client_app.h)(0x691EB248)
 I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\http_server_app.h)(0x688B03D9)
-I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h)(0x675FF509)
-I (../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h)(0x675FF509)
+I (..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt.h)(0x692E8B95)
 F (..\scorpio_bsp\bsp_lte.c)(0x69255955)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../LWIP/App -I ../LWIP/Target -I ../wolfMQTT -I ../wolfSSL -I ../Middlewares/Third_Party/LwIP/src/include -I ../Middlewares/Third_Party/LwIP/system -I ../Drivers/STM32F2xx_HAL_Driver/Inc -I ../Drivers/STM32F2xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I ../Drivers/CMSIS/Device/ST/STM32F2xx/Include -I ../Middlewares/Third_Party/LwIP/src/include/lwip -I ../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I ../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I ../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I ../Middlewares/Third_Party/LwIP/src/include/netif -I ../Middlewares/Third_Party/LwIP/src/include/posix -I ../Middlewares/Third_Party/LwIP/src/include/posix/sys -I ../Middlewares/Third_Party/LwIP/system/arch -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/ -I ../Middlewares/Third_Party/wolfSSL_wolfSSL_wolfSSL/wolfssl/ -I ../scorpio_app -I ../scorpio_bsp -I ../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/wolfmqtt-I.\RTE\_WOLF_MQTT-IC:\KEIL\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\KEIL\Keil\STM32F2xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F207xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F207xx-o wolf_mqtt\bsp_lte.o --omf_browse wolf_mqtt\bsp_lte.crf --depend wolf_mqtt\bsp_lte.d)
 I (..\scorpio_bsp\bsp_lte.h)(0x688B03D9)
 I (../Core/Inc/main.h)(0x692982A6)

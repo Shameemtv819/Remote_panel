@@ -89,6 +89,7 @@ void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_d
 	{
 	case ETH_CLOUD_FW_DOWNLOAD_QUEUE:
 	{
+		mqtt_notify_ota();
 		if (vsocketmanagertask() >= 0)
 		{
 			if (download_ota_file(ssl) != 0)
@@ -121,14 +122,6 @@ void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_d
 				debug_msg("\r\n MQTT log publish success\r\n");
 			}
 
-			if (sent_fire_fault(ssl, au8_tx_data, u16_tx_data_len) <= 0)
-			{
-				debug_msg("\r\nLOG upload  failed\r\n");
-			}
-			else
-			{
-				debug_msg("\r\nLOG upload success\r\n");
-			}
 		}
 		else
 		{
@@ -855,3 +848,5 @@ void netif_status_callback(struct netif *netif)
 		debug_msg("Network interface is DOWN.\n");
 	}
 }
+
+

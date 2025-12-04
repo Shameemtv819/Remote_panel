@@ -174,5 +174,4 @@ wolf_mqtt\mqtt_app.o: ..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mcu_co
 wolf_mqtt\mqtt_app.o: ..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\json_handler.h
 wolf_mqtt\mqtt_app.o: ..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\https_client_app.h
 wolf_mqtt\mqtt_app.o: ..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\http_server_app.h
-wolf_mqtt\mqtt_app.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h
-wolf_mqtt\mqtt_app.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h
+wolf_mqtt\mqtt_app.o: ..\..\..\Documents\Work_space\WOLF_MQTT\scorpio_app\mqtt.h

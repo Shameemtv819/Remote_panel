@@ -113,7 +113,8 @@ void ethernetif_notify_conn_changed(struct netif *netif)
   if (netif_is_link_up(&gnetif) != 1)
   {
     netif_set_down(&gnetif);
-    debug_msg("\r\n*************diconnected*******************");
+    debug_msg("\r\n*************diconnected*******************1");
+		xEventGroupClearBitsFromISR(event_ip_stat, EVENT_IP_DYNAMIC);
     dhcp_queue = DHCP_LINK_DOWN;
   }
   else

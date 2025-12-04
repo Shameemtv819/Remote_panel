@@ -150,7 +150,7 @@ void handle_http_GET_request(char *pu8_http_buf,struct netconn *conn,char *au8_t
   // check for GET request
         if (0 == strncmp((char *)pu8_http_buf, "GET / ", 6))
         {
-          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(28 * 1024);
+          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(30 * 1024);
           if (status_temp_buf == NULL)
           {
             debug_msg("\r\n mem allocate failed");
@@ -179,7 +179,7 @@ void handle_http_GET_request(char *pu8_http_buf,struct netconn *conn,char *au8_t
         else if (0 == strncmp((char *)pu8_http_buf, "GET /scorpioStatus", 18))
         {
           // using HEAP for optimized memmory use
-          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(28 * 1024);
+          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(30 * 1024);
           if (status_temp_buf == NULL)
           {
             debug_msg("\r\n mem allocate failed");
@@ -255,7 +255,7 @@ void handle_http_GET_request(char *pu8_http_buf,struct netconn *conn,char *au8_t
         else if (0 == strncmp((char *)pu8_http_buf, "GET /certConfigPage", 19))
         {
 
-          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(28 * 1024);
+          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(30 * 1024);
           if (status_temp_buf == NULL)
           {
             debug_msg("\r\n mem allocate failed");
@@ -281,7 +281,7 @@ void handle_http_GET_request(char *pu8_http_buf,struct netconn *conn,char *au8_t
         }
         else if (0 == strncmp((char *)pu8_http_buf, "GET /ipConfigPage", 17))
         {
-          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(28 * 1024);
+          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(30 * 1024);
           if (status_temp_buf == NULL)
           {
             debug_msg("\r\n mem allocate failed");
@@ -307,7 +307,7 @@ void handle_http_GET_request(char *pu8_http_buf,struct netconn *conn,char *au8_t
         }
         else if (0 == strncmp((char *)pu8_http_buf, "GET /gsmConfigPage", 18))
         {
-          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(28 * 1024);
+          uint8_t *status_temp_buf = (uint8_t *)pvPortMalloc(30 * 1024);
           if (status_temp_buf == NULL)
           {
             debug_msg("\r\n mem allocate failed");
@@ -317,13 +317,15 @@ void handle_http_GET_request(char *pu8_http_buf,struct netconn *conn,char *au8_t
           sprintf((char *)status_temp_buf, (char *)au8_GSM_conf_page_html, pf_config->IP.ip_addr, pf_config->IP.ip_addr, pf_config->IP.ip_addr, pf_config->IP.ip_addr, pf_config->IP.ip_addr);
           http_cli_header_response(buff, strlen((char *)status_temp_buf), TYPE_HTML);
 
+					
           // json header
           netconn_write(conn, (const uint8_t *)(buff),
-                        (uint16_t)strlen((char *)buff), NETCONN_NOCOPY);
+                        (uint16_t)strlen((char *)buff), NETCONN_COPY);
+					
 
           // data
           netconn_write(conn, (const uint8_t *)(status_temp_buf),
-                        (uint16_t)strlen((char *)status_temp_buf), NETCONN_NOCOPY);
+                        (uint16_t)strlen((char *)status_temp_buf), NETCONN_COPY);
 
           vPortFree(status_temp_buf);
         }

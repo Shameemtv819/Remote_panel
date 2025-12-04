@@ -24,9 +24,11 @@
 static StaticEventGroup_t xEventGroupLTE;
 static StaticEventGroup_t xEventGroupMCUcomm;
 static StaticEventGroup_t xEventGroupETH;
+static StaticEventGroup_t xEventGroupIP_stat;
 EventGroupHandle_t event_lte_rx;
 EventGroupHandle_t event_mcu_comm_rx;
 EventGroupHandle_t event_eth_rx;
+EventGroupHandle_t event_ip_stat;
 
 /* queues*/
 static uint8_t ltequeueStorageArea[sizeof(queue_data_def) * 30];
@@ -276,6 +278,8 @@ void DHCP_thread(void *argument)
           xQueueSendFromISR(queue_ip_conf, (queue_data_def *)&dhcp_queue, &xHigherPriorityTaskWoken);
           fetch_network_time();
 					
+					xEventGroupSetBits(event_ip_stat, EVENT_IP_DYNAMIC);
+
           // debug_msg("\r\nIP address assigned starting mqtt task:");
 					// if(mqtt_task_handle == 0U)
 					// {
@@ -293,6 +297,7 @@ void DHCP_thread(void *argument)
           debug_msg(buff);
           if (dhcp->tries > MAX_DHCP_TRIES)
           {
+						xEventGroupClearBits(event_ip_stat, EVENT_IP_DYNAMIC);
             dhcp_queue = DHCP_TIMEOUT;
             xQueueSendFromISR(queue_ip_conf, (queue_data_def *)&dhcp_queue, &xHigherPriorityTaskWoken);
             /* Stop DHCP */
@@ -393,6 +398,8 @@ void ip_task(void *argument)
   /* Infinite loop */
   for (;;)
   {
+		if(pdTRUE == xEventGroupWaitBits(event_ip_stat,EVENT_IP_DYNAMIC,pdFALSE,pdTRUE,100))
+		{
 #if (THREADX)
     if (TX_SUCCESS == tx_queue_receive(&queue_lte, ip_data_recv, TX_WAIT_FOREVER))
 #elif (FREE_RTOS)
@@ -405,6 +412,7 @@ void ip_task(void *argument)
 			mqtt_process();
 		}
   }
+}
 }
 
 /**
@@ -466,6 +474,7 @@ static void event_flags_init(void)
   event_lte_rx = xEventGroupCreateStatic(&xEventGroupLTE);
   event_mcu_comm_rx = xEventGroupCreateStatic(&xEventGroupMCUcomm);
   event_eth_rx = xEventGroupCreateStatic(&xEventGroupETH);
+	event_ip_stat = xEventGroupCreateStatic(&xEventGroupIP_stat);
 }
 
 /**
