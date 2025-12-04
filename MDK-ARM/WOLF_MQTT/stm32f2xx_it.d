@@ -44,3 +44,9 @@ wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/common.h
 wolf_mqtt\stm32f2xx_it.o: ../Core/Inc/main.h
 wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/scorpio_conf.h
 wolf_mqtt\stm32f2xx_it.o: ../Core/Inc/stm32f2xx_it.h
+wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/scorpio_bsp.h
+wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/bsp_relay.h
+wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/bsp_lte.h
+wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/debug_uart.h
+wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/mcu_comm_uart.h
+wolf_mqtt\stm32f2xx_it.o: ../scorpio_bsp/crc.h
