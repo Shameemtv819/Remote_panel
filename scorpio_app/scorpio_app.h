@@ -51,6 +51,7 @@
 #include "scorpio_bsp.h"
 
 // app includes
+#include "mqtt_app.h"
 #include "ca_cert.h"
 #include "html_page.h"
 #include "task.h"
@@ -63,7 +64,7 @@
 #include "https_client_app.h"
 #include "http_server_app.h"
 #include "mqtt.h"
-#include "mqtt_app.h"
+
 
 
 /*********************************************************** Macros ****************************************************************/

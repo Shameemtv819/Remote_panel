@@ -121,12 +121,12 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
- // MX_CRC_Init();
+  //MX_CRC_Init();
   MX_RNG_Init();
-  //MX_USART2_UART_Init();
+ // MX_USART2_UART_Init();
   MX_TIM12_Init();
-//  MX_USART1_UART_Init();
-//  MX_USART3_UART_Init();
+  //MX_USART1_UART_Init();
+  //MX_USART3_UART_Init();
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
 	//relay_init();
@@ -159,7 +159,7 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  //defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+ // defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

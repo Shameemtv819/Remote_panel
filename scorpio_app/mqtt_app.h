@@ -14,11 +14,18 @@
 
 /*********************************************************** typedef ***************************************************************/
 
+/*********************************************************** enum ****************************************************************/
+/*Modes in mqtt operation */
+enum mqtt_mode
+{
+    MQTT_INIT,
+    MQTT_ROUTINE_OPERATION,
+};
 /******************************************************** Extern variables *********************************************************/
-
+extern uint8_t u8_mqtt_state;
 /******************************************************* function prototypes ******************************************************/
-//void mqtt_task(void);
-void mqtt_process(void);
+char mqtt_task(void);
+int mqtt_notify_ota(void);
 int mqtt_publish_fire_fault(uint8_t *payload, uint16_t payload_len);
 
 #endif /* MQTT_APP_H */

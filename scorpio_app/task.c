@@ -358,14 +358,14 @@ void ip_task(void *argument)
   /* init code for LWIP */
   if (pf_config->GSM.u8_gsm_enable)
   {
-    if (SUCCESS == lte_module_reset())
-    {
-      lte_init();
-    }
-    else
-    {
-      debug_msg((uint8_t *)"lte not initialized properly");
-    }
+//    if (SUCCESS == lte_module_reset())
+//    {
+//      lte_init();
+//    }
+//    else
+//    {
+//      debug_msg((uint8_t *)"lte not initialized properly");
+//    }
   }
   else
   {
@@ -446,7 +446,7 @@ static void xTasks_init(void)
 {
   if (pf_config->GSM.u8_gsm_enable)
   {
-    lte_task_handle = osThreadNew(lte_task, NULL, &lte_task_attributes);
+//    lte_task_handle = osThreadNew(lte_task, NULL, &lte_task_attributes);
   }
   else
   {

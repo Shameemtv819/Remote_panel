@@ -182,12 +182,12 @@ void TIM2_IRQHandler(void)
 /**
   * @brief This function handles USART1 global interrupt.
   */
-void UART_LTE_IRQ_HANDLER(void)
+void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
 
   /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(get_lte_peripheral());
+  HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
 
   /* USER CODE END USART1_IRQn 1 */
@@ -196,12 +196,12 @@ void UART_LTE_IRQ_HANDLER(void)
 /**
   * @brief This function handles USART2 global interrupt.
   */
-void UART_DEBUG_IRQ_HANDLER(void)
+void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
 
   /* USER CODE END USART2_IRQn 0 */
-  HAL_UART_IRQHandler(get_debug_peripheral());
+  HAL_UART_IRQHandler(&huart2);
   /* USER CODE BEGIN USART2_IRQn 1 */
 
   /* USER CODE END USART2_IRQn 1 */
@@ -210,12 +210,12 @@ void UART_DEBUG_IRQ_HANDLER(void)
 /**
   * @brief This function handles USART3 global interrupt.
   */
-void UART_MCU_COMM_IRQ_HANDLER(void)
+void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
-uart_mcu_comm.rx_count++;
+  uart_mcu_comm.rx_count++;
   /* USER CODE END USART3_IRQn 0 */
-  HAL_UART_IRQHandler(get_mcu_comm_peripheral());
+  HAL_UART_IRQHandler(&huart3);
   /* USER CODE BEGIN USART3_IRQn 1 */
 
   /* USER CODE END USART3_IRQn 1 */

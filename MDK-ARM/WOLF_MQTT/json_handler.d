@@ -162,6 +162,7 @@ wolf_mqtt\json_handler.o: ../scorpio_bsp/bsp_lte.h
 wolf_mqtt\json_handler.o: ../scorpio_bsp/debug_uart.h
 wolf_mqtt\json_handler.o: ../scorpio_bsp/mcu_comm_uart.h
 wolf_mqtt\json_handler.o: ../scorpio_bsp/crc.h
+wolf_mqtt\json_handler.o: ..\scorpio_app\mqtt_app.h
 wolf_mqtt\json_handler.o: ..\scorpio_app\ca_cert.h
 wolf_mqtt\json_handler.o: ..\scorpio_app\html_page.h
 wolf_mqtt\json_handler.o: ..\scorpio_app\task.h
@@ -175,4 +176,3 @@ wolf_mqtt\json_handler.o: ..\scorpio_app\https_client_app.h
 wolf_mqtt\json_handler.o: ..\scorpio_app\http_server_app.h
 wolf_mqtt\json_handler.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt.h
 wolf_mqtt\json_handler.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mqtt_opts.h
-wolf_mqtt\json_handler.o: ..\scorpio_app\mqtt_app.h

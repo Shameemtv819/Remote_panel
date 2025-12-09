@@ -85,6 +85,7 @@ int32_t sent_fire_fault(WOLFSSL *ssl, uint8_t *au8_post_data, uint16_t u16_post_
  *************************************************************************************************************************************************/
 void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_data_len)
 {
+	char c_ret = 0;
 	switch (u8_service)
 	{
 	case ETH_CLOUD_FW_DOWNLOAD_QUEUE:
@@ -111,22 +112,40 @@ void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_d
 	}
 	case ETH_CLOUD_POST_QUEUE:
 	{
-		if (vsocketmanagertask() >= 0)
-		{
-			if (mqtt_publish_fire_fault(au8_tx_data, u16_tx_data_len) <= 0)
+//		if (vsocketmanagertask() >= 0)
+//		{
+			debug_msg("\r\n Starting MQTT fire publish\r\n");
+			
+		
+			if(u8_mqtt_state == MQTT_INIT)
+			{
+				do
+				{
+				debug_msg("waiting for internet......\r\n");
+				c_ret = mqtt_process();
+					
+				}while(c_ret < 0);
+			}
+			else
+			{
+				debug_msg("mqtt is connected publishing data\r\n");
+			}
+		
+			if (mqtt_publish_fire_fault(au8_tx_data, u16_tx_data_len) < 0)
 			{
 				debug_msg("\r\n MQTT log publish failed\r\n");
 			}
 			else
 			{
 				debug_msg("\r\n MQTT log publish success\r\n");
+				u8_mqtt_state = MQTT_ROUTINE_OPERATION;
 			}
 
-		}
-		else
-		{
-			debug_msg("\r\nerror : internet error");
-		}
+//		}
+//		else
+//		{
+//			debug_msg("\r\nerror : internet error");
+//		}
 		break;
 	}
 	}

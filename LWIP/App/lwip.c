@@ -210,11 +210,11 @@ void MX_LWIP_Init(void)
 //  link_arg.semaphore = Netif_LinkSemaphore;
 //  /* Create the Ethernet link handler thread */
 ///* USER CODE BEGIN OS_THREAD_NEW_CMSIS_RTOS_V2 */
-//  memset(&attributes, 0x0, sizeof(osThreadAttr_t));
-//  attributes.name = "LinkThr";
-//  attributes.stack_size = INTERFACE_THREAD_STACK_SIZE;
-//  attributes.priority = osPriorityBelowNormal;
-//  osThreadNew(ethernetif_set_link, &link_arg, &attributes);
+////  memset(&attributes, 0x0, sizeof(osThreadAttr_t));
+////  attributes.name = "LinkThr";
+////  attributes.stack_size = INTERFACE_THREAD_STACK_SIZE;
+////  attributes.priority = osPriorityBelowNormal;
+////  osThreadNew(ethernetif_set_link, &link_arg, &attributes);
 ///* USER CODE END OS_THREAD_NEW_CMSIS_RTOS_V2 */
 
 //  /* Start DHCP negotiation for a network interface (IPv4) */

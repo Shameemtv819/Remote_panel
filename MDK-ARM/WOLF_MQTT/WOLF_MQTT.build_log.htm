@@ -22,17 +22,28 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 C:\Users\mohammedshameemTV\Work_space\WOLF_MQTT\MDK-ARM\WOLF_MQTT.uvprojx
-Project File Date:  12/02/2025
+Project File Date:  12/09/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\keil\ARM\ARMCC\Bin'
 Build target 'WOLF_MQTT'
+Note: source file '../Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rtc.c' - object file renamed from 'WOLF_MQTT\stm32f2xx_hal_rtc.o' to 'WOLF_MQTT\stm32f2xx_hal_rtc_1.o'.
+Note: source file '../Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rtc_ex.c' - object file renamed from 'WOLF_MQTT\stm32f2xx_hal_rtc_ex.o' to 'WOLF_MQTT\stm32f2xx_hal_rtc_ex_1.o'.
 Note: source file '../Middlewares/Third_Party/wolfSSL_wolfMQTT_wolfMQTT/wolfmqtt/src/mqtt_client.c' - object file renamed from 'WOLF_MQTT\mqtt_client.o' to 'WOLF_MQTT\mqtt_client_1.o'.
-compiling stm32f2xx_it.c...
+compiling https_client_app.c...
+..\scorpio_app\mqtt_app.h(31): warning:  #1-D: last line of file ends without a newline
+  #endif /* MQTT_APP_H */
+..\scorpio_app\https_client_app.c(31): warning:  #47-D: incompatible redefinition of macro "CLEAR"  (declared at line 16 of "..\scorpio_app\network_time.h")
+  #define CLEAR                   (0U)
+..\scorpio_app\https_client_app.c(125): warning:  #223-D: function "mqtt_process" declared implicitly
+  				c_ret = mqtt_process();
+..\scorpio_app\https_client_app.c(127): warning:  #186-D: pointless comparison of unsigned integer with zero
+  				}while(c_ret < 0);
+..\scorpio_app\https_client_app.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=350040 RO-data=170896 RW-data=1260 ZI-data=119340  
+Program Size: Code=343772 RO-data=170848 RW-data=1212 ZI-data=118220  
 FromELF: creating hex file...
-"WOLF_MQTT\WOLF_MQTT.axf" - 0 Error(s), 0 Warning(s).
+"WOLF_MQTT\WOLF_MQTT.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -76,7 +87,7 @@ Package Vendor: Keil
       Source file:   Template/stdout_display.c
       Source file:   Template/stdout_user.c
       Source file:   Template/stdout_USART.c
-Build Time Elapsed:  00:00:25
+Build Time Elapsed:  00:00:21
 </pre>
 </body>
 </html>
