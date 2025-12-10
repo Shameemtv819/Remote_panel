@@ -26,6 +26,7 @@ extern uint8_t u8_mqtt_state;
 /******************************************************* function prototypes ******************************************************/
 char mqtt_task(void);
 int mqtt_notify_ota(void);
+void mqtt_clear_buffers(void);
 int mqtt_publish_fire_fault(uint8_t *payload, uint16_t payload_len);
 
 #endif /* MQTT_APP_H */

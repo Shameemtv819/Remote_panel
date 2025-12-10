@@ -82,7 +82,7 @@ int32_t sent_fire_fault(WOLFSSL *ssl, uint8_t *au8_post_data, uint16_t u16_post_
  * @param u8_service     :- request from panel
  *        au8_tx_data     :- buffer to be sent though eth for log creation
  *        u16_tx_data_len :- length of the buffer to be transmitted.
- *************************************************************************************************************************************************/
+*************************************************************************************************************************************************/
 void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_data_len)
 {
 	char c_ret = 0;
@@ -90,7 +90,9 @@ void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_d
 	{
 	case ETH_CLOUD_FW_DOWNLOAD_QUEUE:
 	{
+		/*notifying server that there will be no status update until ota update finishes*/
 		mqtt_notify_ota();
+
 		if (vsocketmanagertask() >= 0)
 		{
 			if (download_ota_file(ssl) != 0)
@@ -108,12 +110,14 @@ void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_d
 			debug_msg("\r\nerror : internet error");
 			lwip_close(i32_sockfd);
 		}
+
+		mqtt_clear_buffers();
+		/*since OTA update takes more time the mqtt socket will be closed by server mqtt must connect from scratch*/
+		u8_mqtt_state = MQTT_INIT;
 		break;
 	}
 	case ETH_CLOUD_POST_QUEUE:
-	{
-//		if (vsocketmanagertask() >= 0)
-//		{
+	{	
 			debug_msg("\r\n Starting MQTT fire publish\r\n");
 			
 		
@@ -140,12 +144,6 @@ void ip_task_process(uint8_t u8_service, uint8_t *au8_tx_data, uint16_t u16_tx_d
 				debug_msg("\r\n MQTT log publish success\r\n");
 				u8_mqtt_state = MQTT_ROUTINE_OPERATION;
 			}
-
-//		}
-//		else
-//		{
-//			debug_msg("\r\nerror : internet error");
-//		}
 		break;
 	}
 	}
@@ -183,6 +181,7 @@ int32_t vsocketmanagertask(void)
 	struct sockaddr_in servaddr;
 
 	debug_msg((uint8_t *)pf_scp_config->https.url);
+	
 	// collecting server ip through DNS
 	i32_ret = netconn_gethostbyname((char *)pf_scp_config->https.url, &ip_address);
 

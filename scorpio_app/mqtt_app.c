@@ -1,13 +1,13 @@
 /**
- * @file mqtt_client.c
+ * @file   mqtt_client.c
  * @author shameem
- * @brief 
- * @date 2025-11-20
+ * @brief  This file will have all mqtt related functions
+ * @date   2025-11-20
  * @copyright Copyright (c) 2025
  */
-/************************************************************* Header includes ***************************************************************/
+/************************************************************* Header includes ******************************************************************/
 #include "mqtt_app.h"
-/*********************************************************** Structure definitions  **********************************************************/
+/*********************************************************** Structure definitions  *************************************************************/
 /*structure to sent fire fault for register log in cloud*/
 typedef struct __attribute__((__packed__))
 {
@@ -35,29 +35,32 @@ typedef struct __attribute__((__packed__))
 } EventLog_t;
 
 /* USER CODE END Private defines */
-EventLog_t fire = {
-    .u16_event_id = 2010,
-    .log_num = 56,
-    .au8_device_text = "Sensor Activated", // up to 20 chars (+1 for '\0')
-    .u8_zone_number = 5,
-    .u8_node_address = 12,
-    .u8_device_address = 7,
-    .u8_device_type = 2,
-    .u8_device_sub_type = 1,
-    .u8_date = 8,
-    .u8_month = 11,
-    .u8_year = 25,
-    .u8_hours = 14,
-    .u8_minutes = 37,
-    .u8_seconds = 52,
-    .serial_no = 5000,
-    .u8_logbitoffset = 3,
-    .u16_crc = 0xABCD, // placeholder CRC
-    .u16_source = 0X400B,
-    .payload_length = 42,
+EventLog_t fire =
+    {
+        .u16_event_id = 2010,
+        .log_num = 56,
+        .au8_device_text = "Sensor Activated", // up to 20 chars (+1 for '\0')
+        .u8_zone_number = 5,
+        .u8_node_address = 12,
+        .u8_device_address = 7,
+        .u8_device_type = 2,
+        .u8_device_sub_type = 1,
+        .u8_date = 8,
+        .u8_month = 11,
+        .u8_year = 25,
+        .u8_hours = 14,
+        .u8_minutes = 37,
+        .u8_seconds = 52,
+        .serial_no = 5000,
+        .u8_logbitoffset = 3,
+        .u16_crc = 0xABCD, // placeholder CRC
+        .u16_source = 0X400B,
+        .payload_length = 42,
 };
 
 /*status update structure*/
+/*status = 0 :- device active in normal mode */
+/*status = 2 :- device active in maintanance mode(OTA update)*/
 typedef struct __attribute__((__packed__))
 {
     uint16_t sl_no;
@@ -69,36 +72,32 @@ typedef struct
 {
     int socket_fd;
 } MqttLwipContext;
-/************************************************************** Macros & enums ****************************************************************/
+/************************************************************** Macros & enums ******************************************************************/
 /*Brocker url*/
-#define MQTT_HOST "ec2-34-227-142-219.compute-1.amazonaws.com"
+#define MQTT_HOST             "ec2-34-227-142-219.compute-1.amazonaws.com"
 /*Brocker port*/
-#define MQTT_PORT (1883U)
+#define MQTT_PORT             (1883U)
 /*Topic to update status*/
-#define MQTT_TOPIC "Emcus/status"
+#define MQTT_TOPIC            "Emcus_Technology_Solutions_Private_Limited/status"
 
-#define MQTT_FIRE_FAULT_TOPIC "Emcus/logs"
+#define MQTT_FIRE_FAULT_TOPIC "Emcus_Technology_Solutions_Private_Limited/logs"
 
-#define NO_INTERNET_FOR_DNS (0U)
+#define NO_INTERNET_FOR_DNS   (0U)
 
-#define MAX_RETRIES         (10U)
+#define MAX_RETRIES           (10U)
 
-#define RETRY_DELAY_MS      (2000U)
+#define RETRY_DELAY_MS        (2000U)
 
-#define MQTT_CONN_RETRY     (2U)
-
-
-
-/************************************************************** static global variables ****************************************************************/
+#define MQTT_CONN_RETRY       (2U)
+/*********************************************************** static global variables ************************************************************/
 static MqttNet net;
 static MqttClient client;
-static uint8_t u8_print_buff[150];
-static unsigned char txtx_buf[0x100];
-static unsigned char rxrx_buf[0x100];
+static unsigned char txtx_buf[0x50];
+static unsigned char rxrx_buf[0x50];
 
- uint8_t u8_mqtt_state = MQTT_INIT;
+uint8_t u8_mqtt_state = MQTT_INIT;
 
-/************************************************************** static function prototypes ****************************************************************/
+/*********************************************************** static function prototypes *********************************************************/
 static int MqttNet_Init(MqttNet *net);
 static int mqtt_tls_cb(MqttClient *client);
 static int mqtt_lwip_disconnect(void *context);
@@ -107,15 +106,16 @@ static int mqtt_lwip_write(void *context, const byte *buf, int len, int timeout_
 static int mqtt_lwip_connect(void *context, const char *host, word16 port, int timeout_ms);
 static int message_callback(struct _MqttClient *client, MqttMessage *message, byte msg_new, byte msg_done);
 
-/************************************************************** function definitions ****************************************************************/
-/**
+/*********************************************************** function definitions ***************************************************************/
+/*************************************************************************************************************************************************
  * @brief  TLS callback for MQTT client.
  * @author shameem
- * @param client Pointer to the MQTT client.
- * @return       Status of the TLS callback.
- */
+ * @param  client Pointer to the MQTT client.
+ * @return Status of the TLS callback.
+ ************************************************************************************************************************************************/
 static int mqtt_tls_cb(MqttClient *client)
 {
+    /*TODO : mqtts to be implemented from cloud side*/
     //	WOLFSSL_CTX* ctx = (WOLFSSL_CTX*)client->tls.ctx;
     //    WOLFSSL* ssl = (WOLFSSL*)client->tls.ssl;
     //
@@ -139,21 +139,22 @@ static int mqtt_tls_cb(MqttClient *client)
     return WOLFSSL_SUCCESS;
 }
 
-/**
- * @brief Attempts to establish a TCP connection to the specified host and port using LwIP.
- *@author shameem
- * @param context    Pointer to the MQTT network context.
- * @param host       Pointer to the hostname to connect to.
- * @param port       Port number to connect to.
- * @param timeout_ms Connection timeout in milliseconds.
+/*************************************************************************************************************************************************
+ * @brief  Attempts to establish a TCP connection to the specified host and port using LwIP.
+ * @author shameem
+ * @param  context    Pointer to the MQTT network context.
+ * @param  host       Pointer to the hostname to connect to.
+ * @param  port       Port number to connect to.
+ * @param  timeout_ms Connection timeout in milliseconds.
  * @return           Status of the connection attempt.
- */
+ ************************************************************************************************************************************************/
 static int mqtt_lwip_connect(void *context, const char *host, word16 port, int timeout_ms)
 {
-    int i32_rc = 0U;
-    struct hostent *hp;
-    struct sockaddr_in server_addr;
-    MqttLwipContext *ctx = (MqttLwipContext *)context;
+    int i32_rc                     = CLEAR;
+    struct hostent *hp             = NULL;
+    MqttLwipContext *ctx           = (MqttLwipContext *)context;
+    struct sockaddr_in server_addr = {CLEAR};
+  
 
     uint8_t au8_dbg_buff[128]; /* Debug buffer */
 
@@ -235,21 +236,21 @@ static int mqtt_lwip_connect(void *context, const char *host, word16 port, int t
     return MQTT_CODE_ERROR_NETWORK;
 }
 
-/**
+/*************************************************************************************************************************************************
  * @brief  Reads data from the MQTT network.
  * @author shameem
- * @param context    Pointer to the MQTT network context.
- * @param buf        Buffer to store the read data.
- * @param len        Length of the buffer.
- * @param timeout_ms Read timeout in milliseconds.
+ * @param  context    Pointer to the MQTT network context.
+ * @param  buf        Buffer to store the read data.
+ * @param  len        Length of the buffer.
+ * @param  timeout_ms Read timeout in milliseconds.
  * @return           Number of bytes read or error code.
- */
+ ************************************************************************************************************************************************/
 static int mqtt_lwip_read(void *context, byte *buf, int len, int timeout_ms)
 {
 
-    int i32_recvd;
-    fd_set readset;
-    struct timeval tv;
+    int i32_recvd        = CLEAR;
+    fd_set readset       = {CLEAR};
+    struct timeval tv    = {CLEAR};
     MqttLwipContext *ctx = (MqttLwipContext *)context;
 
     FD_ZERO(&readset);
@@ -286,21 +287,20 @@ static int mqtt_lwip_read(void *context, byte *buf, int len, int timeout_ms)
     return i32_recvd;
 }
 
-/**
- * @brief Writes data to the MQTT network.
- *@author shameem
- * @param context    Pointer to the MQTT network context.
- * @param buf        Buffer containing the data to write.
- * @param len        Length of the data to write.
- * @param timeout_ms Write timeout in milliseconds.
+/*************************************************************************************************************************************************
+ * @brief  Writes data to the MQTT network.
+ *@author  shameem
+ * @param  context    Pointer to the MQTT network context.
+ * @param  buf        Buffer containing the data to write.
+ * @param  len        Length of the data to write.
+ * @param  timeout_ms Write timeout in milliseconds.
  * @return Number of bytes written or error code.
- */
+ ************************************************************************************************************************************************/
 static int mqtt_lwip_write(void *context, const byte *buf, int len, int timeout_ms)
 {
-
-    int i32_sent;
-    fd_set writeset;
-    struct timeval tv;
+    int i32_sent         = CLEAR;
+    fd_set writeset      = {CLEAR};
+    struct timeval tv    = {CLEAR};
     MqttLwipContext *ctx = (MqttLwipContext *)context;
 
     FD_ZERO(&writeset);
@@ -330,12 +330,12 @@ static int mqtt_lwip_write(void *context, const byte *buf, int len, int timeout_
     return i32_sent;
 }
 
-/**
+/*************************************************************************************************************************************************
  * @brief  Disconnects the MQTT network.
- *@author shameem
- * @param context Pointer to the MQTT network context.
- * @return        Status of the disconnection.
- */
+ * @author shameem
+ * @param  context Pointer to the MQTT network context.
+ * @return Status of the disconnection.
+ ************************************************************************************************************************************************/
 static int mqtt_lwip_disconnect(void *context)
 {
     MqttLwipContext *ctx = (MqttLwipContext *)context;
@@ -351,18 +351,16 @@ static int mqtt_lwip_disconnect(void *context)
     return MQTT_CODE_SUCCESS;
 }
 
-/**
- * @brief Initializes the MQTT network structure with LwIP callbacks.
- *@author shameem
- * @param net Pointer to the MQTT network structure to initialize.
- * @return    Status of the initialization.
- */
+/*************************************************************************************************************************************************
+ * @brief  Initializes the MQTT network structure with LwIP callbacks.
+ * @author shameem
+ * @param  net Pointer to the MQTT network structure to initialize.
+ * @return Status of the initialization.
+ ************************************************************************************************************************************************/
 static int MqttNet_Init(MqttNet *net)
 {
-
-    static MqttLwipContext lwipCtx; /* Can be static or allocated dynamically */
+    static MqttLwipContext lwipCtx = {CLEAR}; /* Can be static or allocated dynamically */
     lwipCtx.socket_fd = -1;
-
     net->context = &lwipCtx;
     net->connect = mqtt_lwip_connect;
     net->read = mqtt_lwip_read;
@@ -372,20 +370,20 @@ static int MqttNet_Init(MqttNet *net)
     return MQTT_CODE_SUCCESS;
 }
 
-/**
- * @brief Callback function to handle incoming MQTT messages.
+/*************************************************************************************************************************************************
+ * @brief  Callback function to handle incoming MQTT messages.
  * @author shameem
- * @param client   Pointer to the MQTT client.
- * @param message  Pointer to the received MQTT message.
- * @param msg_new  Flag indicating if this is a new message.
- * @param msg_done Flag indicating if the message is complete.
- * @return         Status of the message handling.
- */
+ * @param  client   Pointer to the MQTT client.
+ * @param  message  Pointer to the received MQTT message.
+ * @param  msg_new  Flag indicating if this is a new message.
+ * @param  msg_done Flag indicating if the message is complete.
+ * @return Status of the message handling.
+ ************************************************************************************************************************************************/
 static int message_callback(struct _MqttClient *client, MqttMessage *message, byte msg_new, byte msg_done)
 {
     debug_msg("\r\nrecv message from brocker\n");
 
-    uint8_t u8_print_buff[256];
+    uint8_t u8_print_buff[256] = {CLEAR};
 
     switch (message->type)
     {
@@ -419,33 +417,37 @@ static int message_callback(struct _MqttClient *client, MqttMessage *message, by
     return MQTT_CODE_SUCCESS; // always return success unless you want to abort
 }
 
-/**
- * @brief MQTT task to handle connection and messaging
+/*************************************************************************************************************************************************
+ * @brief  MQTT task to handle connection and messaging
  * @author shameem
- * @param None
- */
+ * @param  None
+ * @return Status of the MQTT processing.
+ ************************************************************************************************************************************************/
 char mqtt_process(void)
 {
-   char c_ret = 0;
-    MqttPublish publish;
-    uint8_t au8_status_buf[] = "{\n  \"serialNumber\": \"5000\",\n  \"status\": \"active\"\n}";
-    ip_addr_t ip_address;
-	uint8_t u8_conn_retry_cnt = CLEAR;
+    char c_ret = CLEAR;
 
-    static uint16_t temp_cnt = 0;
+    uint8_t u8_conn_retry_cnt = CLEAR;
+    uint8_t u8_print_buff[100] = {CLEAR};
 
-    int i32_rc;
+    int i32_rc = CLEAR;
 
-    // while (1)
-    // {
+    MqttPublish publish = {CLEAR};
+
+    status_st st_status = {.sl_no = 5000, .status = 0};
+
+    ip_addr_t ip_address = {CLEAR};
+
     switch (u8_mqtt_state)
     {
     case MQTT_INIT:
     {
-			u8_conn_retry_cnt = CLEAR;
-			
+        u8_conn_retry_cnt = CLEAR;
+
+        /*initialize and set network callbacks*/
         MqttNet_Init(&net);
 
+        /* Set message callback */
         client.msg_cb = message_callback;
 
         /* Initialize network and client */
@@ -458,24 +460,27 @@ char mqtt_process(void)
             debug_msg(u8_print_buff);
         }
 
-        /*Try connecting to brocker until internet is available*/
+        /*Try connecting to brocker internet is available or retry count ends*/
         do
         {
+            /*Connect to brocker through tcp*/
             i32_rc = MqttClient_NetConnect(&client, MQTT_HOST, MQTT_PORT, 10000, 0, mqtt_tls_cb);
             if (i32_rc != MQTT_CODE_SUCCESS)
             {
                 sprintf(u8_print_buff, "\r\nMqttClient_Netconnect error: %d\n", i32_rc);
                 debug_msg(u8_print_buff);
-							u8_conn_retry_cnt++;
+                u8_conn_retry_cnt++;
             }
         } while (u8_conn_retry_cnt >= 2);
 
+        /*initialize connection parameters*/
         MqttConnect connect;
         memset(&connect, 0, sizeof(connect));
         connect.keep_alive_sec = 60;
         connect.clean_session = 1;
         connect.client_id = "stm5000";
 
+        /*initialize connection parameters*/
         i32_rc = MqttClient_Connect(&client, &connect);
         if (i32_rc == MQTT_CODE_SUCCESS)
         {
@@ -485,10 +490,10 @@ char mqtt_process(void)
         {
             sprintf(u8_print_buff, "\r\nMQTT connect error: %d\n", i32_rc);
             debug_msg(u8_print_buff);
-					c_ret = -1;
+            c_ret = -1;
         }
 
-        // Step 4: Subscribe to topics
+        /*initialize subscription parameters*/
         MqttSubscribe mqtt_sub;
         MqttTopic topics[1];
         memset(&mqtt_sub, 0, sizeof(mqtt_sub));
@@ -498,12 +503,13 @@ char mqtt_process(void)
         topics[0].topic_filter = "Emcus/ota/command";
         topics[0].qos = MQTT_QOS_0;
 
+        /*subscribe to topic*/
         i32_rc = MqttClient_Subscribe(&client, &mqtt_sub);
         if (i32_rc != MQTT_CODE_SUCCESS)
         {
             sprintf(u8_print_buff, "Subscribe failed: %d\n", i32_rc);
             debug_msg(u8_print_buff);
-					c_ret -1;
+            c_ret - 1;
         }
         else
         {
@@ -513,27 +519,17 @@ char mqtt_process(void)
         debug_msg("Wolf mQTT init is done starting routine opertions\n");
         u8_mqtt_state = MQTT_ROUTINE_OPERATION;
 
-				MqttClient_WaitMessage(&client, 5000);
-				 MqttClient_Ping(&client);
-				
         break;
     }
-
     case MQTT_ROUTINE_OPERATION:
     {
-			status_st st_status = {.sl_no = 5000,
-			                       .status = 0};
 
-			  memset(&publish, 0, sizeof(publish));
+        memset(&publish, 0, sizeof(publish));
         publish.qos = 0;
         publish.packet_id = 4;
         publish.topic_name = MQTT_TOPIC;
         publish.buffer = (byte *)&st_status;
         publish.total_len = (word16)sizeof(status_st);
-        // Step 5: Message processing loop
-//        debug_msg("Waiting for messages...\n");
-        // while (u8_mqtt_state != MQTT_INIT)
-        // {
 
         i32_rc = MqttClient_WaitMessage(&client, 5000); // Wait up to 5 seconds
         i32_rc = MqttClient_Ping(&client);
@@ -541,41 +537,22 @@ char mqtt_process(void)
         {
             u8_one_sec_flag = 0U;
             i32_rc = MqttClient_Publish(&client, &publish);
-           // temp_cnt++;
-//            if (temp_cnt > 60)
-//            {
-                //mqtt_publish_fire_fault(NULL, 0);
-//							BaseType_t xHigherPriorityTaskWoken = pdFAIL;
-//              BaseType_t pxHigherPriorityTaskWoken = pdFAIL;
-//              queue_data_def eth_data = {0};
-//							 eth_data.service = ETH_CLOUD_FW_DOWNLOAD_QUEUE;
-//                xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
-                temp_cnt = 0;
-           // }
         }
 
         if (i32_rc == MQTT_CODE_SUCCESS)
         {
             // Incoming PUBLISH message will trigger mqtt_message_cb automatically
         }
-        else if (i32_rc == MQTT_CODE_CONTINUE)
-        {
-            // No message yet, timeout expired
-            debug_msg("\n.");
-            i32_rc = MqttClient_Ping(&client);
-            // continue;
-        }
         else
         {
+            /*Internet error handling*/
             sprintf(u8_print_buff, "WaitMessage error: %d\n", i32_rc);
             debug_msg(u8_print_buff);
             u8_mqtt_state = MQTT_INIT;
             debug_msg("Internet Error waiting for internet\r\n");
-            MqttClient_Disconnect(&client);
-            MqttClient_NetDisconnect(&client);
-					c_ret = -1;
+            mqtt_clear_buffers();
+            c_ret = -1;
         }
-        // }
         break;
     }
 
@@ -584,59 +561,71 @@ char mqtt_process(void)
         break;
     }
     }
-    // }
-		
-		return c_ret;
+
+    return c_ret;
 }
 
-
-
-/**
+/*************************************************************************************************************************************************
  * @brief  Publish a fire fault message to the MQTT broker.
  * @author shameem
- * @param payload     Pointer to the payload data.
- * @param payload_len Length of the payload data.
- * @return            Status of the publish operation.
- */
+ * @param  payload     Pointer to the payload data.
+ * @param  payload_len Length of the payload data.
+ * @return Status of the publish operation.
+ ************************************************************************************************************************************************/
 int mqtt_publish_fire_fault(uint8_t *payload, uint16_t payload_len)
 {
-    uint8_t u8_print_buff[100];
-    static int i32_rc = 0;
-    MqttPublish publish = {0};
+    int i32_rc = CLEAR;
+    MqttPublish publish = {CLEAR};
+    uint8_t u8_print_buff[100] = {CLEAR};
+
     publish.qos = 2;
     publish.packet_id = 4;
     publish.topic_name = MQTT_FIRE_FAULT_TOPIC;
     publish.buffer = (byte *)payload;
-    publish.total_len = (word16) payload_len;
+    publish.total_len = (word16)payload_len;
 
     i32_rc = MqttClient_Publish(&client, &publish);
     debug_msg("published fire LOG\r\n");
     return i32_rc;
 }
 
-/**
+/*************************************************************************************************************************************************
  * @brief  Publish a starting ota notification to the MQTT broker.
  * @author shameem
  * @param  Void
  * @return Status of the publish operation.
- */
+ ************************************************************************************************************************************************/
 int mqtt_notify_ota(void)
 {
-	
-		int i32_rc = 0;
-		uint8_t u8_print_buff[100];
-		MqttPublish publish = {0};
-		status_st st_status = {.sl_no = 5000,
-															 .status = 2};
 
-		memset(&publish, 0, sizeof(publish));
-		publish.qos = 0;
-		publish.packet_id = 4;
-		publish.topic_name = MQTT_TOPIC;
-		publish.buffer = (byte *)&st_status;
-		publish.total_len = (word16)sizeof(status_st);
-														 
-		i32_rc = MqttClient_Publish(&client, &publish);
+    int i32_rc = CLEAR;
+    MqttPublish publish = {CLEAR};
+    status_st st_status = {.sl_no = 5000,
+                           .status = 2};
+
+    /*initialize publishing data to buffer */
+    memset(&publish, 0, sizeof(publish));
+    publish.qos = 2;
+    publish.packet_id = 4;
+    publish.topic_name = MQTT_TOPIC;
+    publish.buffer = (byte *)&st_status;
+    publish.total_len = (word16)sizeof(status_st);
+
+    /*publish fire log notification*/
+    i32_rc = MqttClient_Publish(&client, &publish);
     debug_msg("published notification starting ota update\r\n");
     return i32_rc;
+}
+
+/*************************************************************************************************************************************************
+ * @brief  Clears all MQTT related buffers and disconnects the client.
+ * @author shameem
+ * @param  Void
+ * @return Void
+ ************************************************************************************************************************************************/
+void mqtt_clear_buffers(void)
+{
+    /*Clear all mqtt related buffer*/
+    MqttClient_Disconnect(&client);
+    MqttClient_NetDisconnect(&client);
 }

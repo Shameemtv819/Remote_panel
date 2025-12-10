@@ -58,9 +58,6 @@ RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim12;
 
-//UART_HandleTypeDef huart1;
-//UART_HandleTypeDef huart2;
-//UART_HandleTypeDef huart3;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
