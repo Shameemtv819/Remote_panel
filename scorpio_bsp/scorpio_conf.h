@@ -27,7 +27,7 @@
 #define TEST_LTE_SMS                        (0) // sends test queue to sms
 #define TEST_LTE_SIM_SWITCH                 (0) // sends test queue to switch
 #define TEST_ETH_FW_DWNLD_DEBUG             (0)
-#define TEST_ETH_PANEL_UPLOAD               (0U)
+#define TEST_ETH_PANEL_UPLOAD               (1U)
 
 #if(PRODUCTION_BOARD)
 //relay pin configuration

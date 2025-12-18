@@ -18,7 +18,7 @@
 #define MODE_CHUNK         	    (1U)
 #define CHUNK_SIZE              (0x2000U)
 #define SERVER_PORT        	    (443U)
-#define WOLFSS_DEBUG 			(0U)
+#define WOLFSS_DEBUG 			(1U)
 #define HTTPS_STREAM 			(1U)
 #define FORMAT_BYTES 			(12U)
 #define RETRY_DELAY_MS 			(100U)
@@ -35,9 +35,8 @@
 #define FILE_RANGE_STR     "Start-Non-FF-Packet: "
 #define HTTPS_HOST         "us-central1-ip-gsm-ts.cloudfunctions.net"
 #define FIRMWARE_PATH      "/api/files/gsm/downloadRange/firmware_AURA.bin"
-#define REQ_FILE_SIZE      "/api/files/size?fileName=Emcus/firmware_AURA.bin"
-#define RESET_CURSOR       "/api/files/reset-cursor?fileName=firmware_AURA.bin"
-#define REQ_FILE_RANGE     "/api/files/gsm/downloadRange/Emcus/firmware_AURA.bin"
+#define REQ_FILE_SIZE      "/api/files/size?fileName=Emcus_Technology_Solutions_Private_Limited/firmware_AURA.bin"
+#define REQ_FILE_RANGE     "/api/files/gsm/downloadRange/Emcus_Technology_Solutions_Private_Limited/firmware_AURA.bin"
 
 #define LAN8742_PHY_ISR 0x1D
 /******************************************************************* Variables ******************************************************************/
@@ -817,6 +816,12 @@ void wolf_ssl_task(void) //*argument)
 	// setting secrity level 
 	wolfSSL_CTX_set_verify(ctx, WOLFSSL_VERIFY_PEER, NULL);
 
+		sprintf((char *)ac_print_buff, "\n\ncertificate length %d\n \n", strlen((char *)pf_scp_config->https.cert));
+	debug_msg((uint8_t *)ac_print_buff);
+	debug_msg((uint8_t *)pf_scp_config->https.cert);
+	
+	
+	
 	// Load CA certificate from memory  wolfSSL_CTX_load_verify_buffer
 	if ((i32_ret = wolfSSL_CTX_load_verify_buffer(ctx, (const uint8_t *)pf_scp_config->https.cert, strlen((char *)pf_scp_config->https.cert), CTC_FILETYPE_PEM)) != SSL_SUCCESS)
 	{

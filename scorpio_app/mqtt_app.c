@@ -8,36 +8,12 @@
 /************************************************************* Header includes ******************************************************************/
 #include "mqtt_app.h"
 /*********************************************************** Structure definitions  *************************************************************/
-/*structure to sent fire fault for register log in cloud*/
-typedef struct __attribute__((__packed__))
-{
-    uint16_t startof_file;
-    uint16_t u16_source;
-    uint16_t payload_length;
-    uint16_t packetNumber;
-    uint16_t u16_event_id;
-    uint16_t log_num;
-    uint8_t au8_device_text[21];
-    uint8_t u8_zone_number;
-    uint8_t u8_node_address;
-    uint8_t u8_device_address;
-    uint8_t u8_device_type;
-    uint8_t u8_device_sub_type;
-    uint8_t u8_date;
-    uint8_t u8_month;
-    uint8_t u8_year;
-    uint8_t u8_hours;
-    uint8_t u8_minutes;
-    uint8_t u8_seconds;
-    uint8_t u8_logbitoffset;
-    uint16_t serial_no;
-    uint16_t u16_crc;
-} EventLog_t;
+
 
 /* USER CODE END Private defines */
 EventLog_t fire =
     {
-        .u16_event_id = 2010,
+        .u16_event_id = 3010,
         .log_num = 56,
         .au8_device_text = "Sensor Activated", // up to 20 chars (+1 for '\0')
         .u8_zone_number = 5,
@@ -425,6 +401,9 @@ static int message_callback(struct _MqttClient *client, MqttMessage *message, by
  ************************************************************************************************************************************************/
 char mqtt_process(void)
 {
+	
+	static uint16_t count = 0;
+	
     char c_ret = CLEAR;
 
     uint8_t u8_conn_retry_cnt = CLEAR;
@@ -500,7 +479,7 @@ char mqtt_process(void)
         mqtt_sub.packet_id = 1;
         mqtt_sub.topic_count = 1;
         mqtt_sub.topics = topics;
-        topics[0].topic_filter = "Emcus/ota/command";
+        topics[0].topic_filter = "Emcus_Technology_Solutions_Private_Limited/ota/command";
         topics[0].qos = MQTT_QOS_0;
 
         /*subscribe to topic*/
@@ -537,6 +516,15 @@ char mqtt_process(void)
         {
             u8_one_sec_flag = 0U;
             i32_rc = MqttClient_Publish(&client, &publish);
+					
+					count++;
+					if(count > 60)
+					{
+						count = 0;
+						debug_msg("sent fire log\r\n");
+						
+						//mqtt_publish_fire_fault((uint8_t*)&fire,sizeof(EventLog_t));
+					}
         }
 
         if (i32_rc == MQTT_CODE_SUCCESS)

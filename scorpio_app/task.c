@@ -278,8 +278,27 @@ void DHCP_thread(void *argument)
           xQueueSendFromISR(queue_ip_conf, (queue_data_def *)&dhcp_queue, &xHigherPriorityTaskWoken);
           fetch_network_time();
 					
+					queue_data_def eth_data = {0};
 					xEventGroupSetBits(event_ip_stat, EVENT_IP_DYNAMIC);
-
+memcpy(eth_data.tx_data, &fire, sizeof(EventLog_t));
+    eth_data.tx_data_len = sizeof(EventLog_t);
+  BaseType_t pxHigherPriorityTaskWoken = pdFAIL;
+  
+					 eth_data.service = ETH_CLOUD_POST_QUEUE;
+	
+    xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					 xQueueSendFromISR(queue_eth, (queue_data_def *)&eth_data, &pxHigherPriorityTaskWoken);
+					
           // debug_msg("\r\nIP address assigned starting mqtt task:");
 					// if(mqtt_task_handle == 0U)
 					// {
